@@ -190,16 +190,6 @@ font-size:18px;
 margin-top:10px;
 }
 
-.stat.pulse h2{
-animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-50%{
-transform:scale(1.08);
-}
-}
-
 /* ================= SERVICES ================= */
 
 .grid{
@@ -256,35 +246,26 @@ padding:20px;
 background:#0f1725;
 padding:35px;
 border-radius:20px;
-max-width:500px;
+max-width:550px;
 width:100%;
-text-align:center;
+text-align:right;
 border:1px solid rgba(0,255,213,.2);
 box-shadow:0 20px 50px rgba(0,255,213,.15);
-animation:popupShow .4s ease;
 position:relative;
-}
-
-@keyframes popupShow{
-from{
-transform:scale(.7);
-opacity:0;
-}
-to{
-transform:scale(1);
-opacity:1;
-}
+overflow:auto;
+max-height:85vh;
 }
 
 .popup-box h2{
 color:#00ffd5;
-margin-bottom:15px;
+margin-bottom:20px;
+text-align:center;
 }
 
 .popup-box p{
 line-height:2;
-font-size:17px;
-opacity:.9;
+font-size:16px;
+white-space:pre-line;
 }
 
 .close-popup{
@@ -340,6 +321,39 @@ transform:scale(1.05);
 box-shadow:0 10px 30px rgba(0,255,213,.3);
 }
 
+/* ================= SOCIAL ================= */
+
+.social-links{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.social-links a{
+width:70px;
+height:70px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+color:#fff;
+text-decoration:none;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+transition:.4s;
+backdrop-filter:blur(10px);
+}
+
+.social-links a:hover{
+transform:translateY(-10px) scale(1.1);
+border-color:#00ffd5;
+box-shadow:0 15px 35px rgba(0,255,213,.25);
+color:#00ffd5;
+}
+
 /* ================= REVEAL ================= */
 
 .reveal{
@@ -380,8 +394,6 @@ padding:25px;
 background:rgba(255,255,255,.04);
 margin-top:50px;
 }
-
-/* ================= MOBILE ================= */
 
 @media(max-width:768px){
 
@@ -450,17 +462,17 @@ width:100%;
 
 <section class="stats reveal">
 
-<div class="stat pulse">
+<div class="stat">
 <h2 class="count" data-target="16325">0</h2>
 <p>عميل</p>
 </div>
 
-<div class="stat pulse">
+<div class="stat">
 <h2 class="count" data-target="42896">0</h2>
 <p>حملة إعلانية</p>
 </div>
 
-<div class="stat pulse">
+<div class="stat">
 <h2 class="count" data-target="113990">0</h2>
 <p>زيارة</p>
 </div>
@@ -479,39 +491,58 @@ width:100%;
 
 <div class="card" onclick="openService(
 'الإعلانات الممولة',
-'نقدم حملات إعلانية ممولة باحترافية على جميع منصات السوشيال ميديا مثل فيسبوك وإنستجرام وتيك توك مع استهداف دقيق للعملاء وتحليل النتائج لتحقيق أفضل وصول ومبيعات.'
+'نقدم حملات إعلانية ممولة بأحترافية على جميع منصات السوشيال ميديا مثل تيليجرام وفيسبوك وإنستجرام وتيك توك وواتساب وسناب شات وجوجل ويوتيوب مع استهداف دقيق للعملاء وتحليل النتائج لتحقيق أفضل وصول ومبيعات.'
 )">
-
 <i class="fas fa-bullhorn"></i>
-
 <h3>إعلانات ممولة</h3>
-
 </div>
 
-<!-- SOCIAL -->
+<!-- SOCIAL MEDIA -->
 
 <div class="card" onclick="openService(
 'إدارة السوشيال ميديا',
-'نقوم بإدارة صفحات السوشيال ميديا بشكل احترافي مع زيادة التفاعل والمتابعين وإنشاء محتوى جذاب يساعد على نمو نشاطك التجاري وانتشاره.'
+'نقوم بإدارة صفحات السوشيال ميديا بشكل احترافي مع زيادة التفاعل والمتابعين وإنشاء محتوى جذاب يساعد على نمو نشاطك التجاري.'
 )">
-
 <i class="fas fa-mobile-screen"></i>
-
 <h3>إدارة السوشيال ميديا</h3>
-
 </div>
 
 <!-- TELEGRAM -->
 
 <div class="card" onclick="openService(
-'بوتات تيليجرام',
-'نقوم بإنشاء بوتات تيليجرام احترافية لخدمة العملاء والرد التلقائي وتنفيذ الطلبات وإدارة القنوات والجروبات بسهولة.'
+'خدمات تيليجرام 🚀',
+'✅ إنشاء بوتات تيليجرام احترافية
+
+✅ تصميم بوتات طلبات ورد تلقائي
+
+✅ بوتات حجز واستقبال العملاء
+
+✅ إدارة قنوات وجروبات تيليجرام
+
+✅ زيادة أعضاء القنوات والجروبات
+
+✅ نشر تلقائي داخل القنوات
+
+✅ ربط البوتات بالمواقع والمتاجر
+
+✅ بوتات خدمات العملاء والدعم الفني
+
+✅ حماية وإدارة الجروبات
+
+✅ إعداد قنوات احترافية للنشاط التجاري
+
+✅ حملات إعلانية لقنوات تيليجرام
+
+✅ تصميم واجهات وأزرار للبوتات
+
+✅ خدمات تطوير وتعديل البوتات
+
+✅ ربط الدفع والطلبات داخل البوت
+
+✅ زيادة التفاعل والمشاهدات للقنوات'
 )">
-
 <i class="fab fa-telegram"></i>
-
-<h3>بوتات تيليجرام</h3>
-
+<h3>خدمات تيليجرام</h3>
 </div>
 
 <!-- MANAGEMENT -->
@@ -520,24 +551,18 @@ width:100%;
 'إدارة الصفحات',
 'نوفر إدارة كاملة للصفحات والمتاجر الإلكترونية مع متابعة الرسائل والتعليقات وتحسين ظهور النشاط التجاري.'
 )">
-
 <i class="fas fa-gears"></i>
-
 <h3>إدارة الصفحات</h3>
-
 </div>
 
 <!-- GROWTH -->
 
 <div class="card" onclick="openService(
 'نمو الحسابات',
-'نساعدك على زيادة نمو حساباتك وتحسين الوصول والتفاعل بطريقة احترافية وآمنة تناسب نشاطك.'
+'نساعدك على زيادة نمو حساباتك وتحسين الوصول والتفاعل بطريقة احترافية وآمنة.'
 )">
-
 <i class="fas fa-chart-line"></i>
-
 <h3>نمو الحسابات</h3>
-
 </div>
 
 <!-- WEBSITES -->
@@ -546,11 +571,8 @@ width:100%;
 'تصميم وإنشاء المواقع',
 'نصمم مواقع إلكترونية احترافية سريعة ومتجاوبة مع جميع الأجهزة تساعدك على عرض خدماتك بشكل مميز.'
 )">
-
 <i class="fas fa-laptop-code"></i>
-
 <h3>تصميم وإنشاء المواقع</h3>
-
 </div>
 
 </div>
@@ -613,6 +635,38 @@ width:100%;
 
 </section>
 
+<!-- SOCIAL MEDIA -->
+
+<section class="section reveal">
+
+<h2>تابعنا على منصاتنا</h2>
+
+<div class="social-links">
+
+<a href="https://t.me/+5TSlpPP48CFhMzg8" target="_blank">
+<i class="fab fa-telegram"></i>
+</a>
+
+<a href="https://www.facebook.com/share/1FaM3PKKp3/" target="_blank">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="https://www.instagram.com/el_tager_1?igsh=dDRxd2hpbnplYzNo" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.tiktok.com/@el_tageer1?_r=1&_t=ZS-96llZ93oZiX" target="_blank">
+<i class="fab fa-tiktok"></i>
+</a>
+
+<a href="https://whatsapp.com/channel/0029VantOMtAInPff6vNpo1z" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</div>
+
+</section>
+
 <!-- CONTACT -->
 
 <section class="section reveal">
@@ -628,27 +682,20 @@ width:100%;
 <!-- WHATSAPP -->
 
 <a class="whatsapp" href="https://wa.me/201024941083">
-
 <i class="fa-brands fa-whatsapp"></i>
-
 </a>
 
 <!-- FOOTER -->
 
 <footer>
-
 © 2026 التاجر للدعاية والإعلان
-
 </footer>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script>
 
-/* particles */
-
 particlesJS("particles-js",{
-
 particles:{
 number:{value:50},
 size:{value:3},
@@ -658,10 +705,7 @@ enable:true,
 distance:140
 }
 }
-
 });
-
-/* loader */
 
 window.addEventListener("load",()=>{
 
@@ -676,8 +720,6 @@ document.querySelector(".loader-screen").style.display="none";
 },2200);
 
 });
-
-/* reveal */
 
 function reveal(){
 
@@ -696,8 +738,6 @@ el.classList.add("active");
 window.addEventListener("scroll",reveal);
 
 reveal();
-
-/* counter */
 
 let started=false;
 
@@ -749,8 +789,6 @@ window.addEventListener("scroll",counter);
 
 counter();
 
-/* popup */
-
 function openService(title,text){
 
 document.getElementById("popupTitle").innerText=title;
@@ -778,8 +816,6 @@ popup.style.display="none";
 }
 
 });
-
-/* whatsapp form */
 
 function sendToWhatsApp(e){
 
