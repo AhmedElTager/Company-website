@@ -1,332 +1,169 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>التاجر للدعاية | Agency</title>
+export default function MerchantAdvertisingWebsite() { const services = [ { title: 'إدارة الإعلانات الممولة', desc: 'إدارة حملات احترافية على فيسبوك وإنستجرام وتيك توك لتحقيق أفضل النتائج.' }, { title: 'تصميم الجرافيك', desc: 'تصميم بوستات وإعلانات وستوريات احترافية تناسب هوية نشاطك التجاري.' }, { title: 'تصوير ومونتاج الفيديو', desc: 'إنشاء فيديوهات Reels وإعلانات جذابة تساعدك على زيادة المبيعات.' }, { title: 'إدارة صفحات السوشيال ميديا', desc: 'نشر المحتوى والرد على العملاء وبناء هوية قوية لعلامتك التجارية.' } ];
 
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+const reviews = [ { name: 'سارة أحمد', text: 'الحملة الإعلانية جابتلي عدد رسائل ممتاز جدًا والتعامل احترافي.' }, { name: 'محمد خالد', text: 'أفضل شركة تعاملت معاها في إدارة الإعلانات والتصميمات.' }, { name: 'منة الله', text: 'الفيديوهات والإعلانات كانت سبب كبير في زيادة المبيعات عندي.' } ];
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
+return ( <div className="min-h-screen bg-black text-white" dir="rtl"> {/* Hero Section */} <section className="relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-red-900 py-20 px-6"> <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center"> <div> <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6"> التاجر للدعاية والإعلان 🚀 </h1>
 
-body{
-    background:#0b0b0f;
-    color:#fff;
-    overflow-x:hidden;
-}
+<p className="text-lg text-gray-300 leading-8 mb-8">
+          نساعدك في زيادة مبيعاتك وبناء براند قوي من خلال الإعلانات الممولة،
+          إدارة السوشيال ميديا، وتصميم المحتوى الاحترافي.
+        </p>
 
-/* NAV */
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 40px;
-    background:rgba(0,0,0,.6);
-    backdrop-filter:blur(12px);
-    z-index:1000;
-}
-nav h1{color:#ff4b2b;font-size:18px}
-nav a{color:#fff;margin:0 10px;text-decoration:none;font-size:14px}
+        <div className="flex flex-wrap gap-4">
+          <a
+            href="https://wa.me/1024941083"
+            className="bg-red-600 hover:bg-red-700 transition px-8 py-4 rounded-2xl text-lg font-bold shadow-2xl"
+          >
+            تواصل واتساب
+          </a>
 
-/* HERO */
-.hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    flex-direction:column;
-    background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
-    url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=1600&q=80');
-    background-size:cover;
-}
+          <a
+            href="#services"
+            className="border border-white/30 hover:bg-white hover:text-black transition px-8 py-4 rounded-2xl text-lg font-bold"
+          >
+            خدماتنا
+          </a>
+        </div>
+      </div>
 
-.logo-glow img{
-    width:160px;
-    border-radius:20px;
-    filter:drop-shadow(0 0 10px #ff4b2b) drop-shadow(0 0 25px #ff4b2b);
-    animation:glow 2s infinite ease-in-out;
-}
+      <div className="flex justify-center">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 w-full max-w-md shadow-2xl">
+          <div className="space-y-5">
+            <div className="bg-red-600 rounded-2xl p-5 text-center">
+              <h3 className="text-2xl font-bold">42896</h3>
+              <p>حملة إعلانية ناجحة</p>
+            </div>
 
-@keyframes glow{
-    50%{transform:scale(1.08)}
-}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-white/10 rounded-2xl p-5 text-center">
+                <h3 className="text-2xl font-bold">10+</h3>
+                <p className="text-sm text-gray-300">سنوات خبرة</p>
+              </div>
 
-.hero h2{font-size:42px;margin-top:20px}
-.hero p{opacity:.8;margin-top:10px}
+              <div className="bg-white/10 rounded-2xl p-5 text-center">
+                <h3 className="text-2xl font-bold">113990</h3>
+                <p className="text-sm text-gray-300">عدد الزيارات</p>
+              </div>
+            </div>
 
-/* BUTTON */
-.btn{
-    margin-top:20px;
-    padding:12px 25px;
-    background:#fff;
-    color:#000;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:bold;
-}
+            <div className="bg-white/10 rounded-2xl p-5 text-center">
+              <p className="text-gray-300 mb-2">عدد العملاء</p>
+              <h3 className="text-2xl font-bold">16325 عميل</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* COUNTERS */
-.stats{
-    display:flex;
-    justify-content:center;
-    gap:50px;
-    padding:70px 20px;
-    text-align:center;
-}
+  {/* Services */}
+  <section id="services" className="py-20 px-6 bg-gray-950">
+    <div className="max-w-6xl mx-auto">
+      <div className="text-center mb-14">
+        <h2 className="text-4xl font-extrabold mb-4">خدماتنا</h2>
+        <p className="text-gray-400 text-lg">
+          كل ما تحتاجه لتطوير نشاطك التجاري في مكان واحد.
+        </p>
+      </div>
 
-.stat h3{
-    font-size:40px;
-    color:#ff4b2b;
-}
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:scale-105 transition duration-300 shadow-xl"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-red-600 flex items-center justify-center text-2xl mb-5">
+              🚀
+            </div>
 
-/* SERVICES */
-section{
-    padding:90px 20px;
-    text-align:center;
-}
+            <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+            <p className="text-gray-400 leading-7">{service.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-.section-title{
-    font-size:32px;
-    color:#ff4b2b;
-    margin-bottom:40px;
-}
+  {/* Why Us */}
+  <section className="py-20 px-6 bg-black">
+    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop"
+          alt="Marketing"
+          className="rounded-3xl shadow-2xl"
+        />
+      </div>
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:20px;
-    max-width:1100px;
-    margin:auto;
-}
+      <div>
+        <h2 className="text-4xl font-extrabold mb-6">
+          لماذا تختار التاجر؟
+        </h2>
 
-.card{
-    background:linear-gradient(145deg,#1a1a1a,#111);
-    padding:25px;
-    border-radius:18px;
-    text-align:right;
-    border:1px solid rgba(255,75,43,.15);
-    transition:.4s;
-    opacity:0;
-    transform:translateY(40px);
-}
+        <div className="space-y-6 text-lg text-gray-300 leading-8">
+          <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
+            ✅ خبرة في إدارة الحملات الإعلانية وتحقيق نتائج قوية.
+          </div>
 
-.card.show{
-    opacity:1;
-    transform:translateY(0);
-}
+          <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
+            ✅ تصميمات وفيديوهات احترافية تناسب جميع الأنشطة التجارية.
+          </div>
 
-.card:hover{
-    transform:translateY(-10px) scale(1.03);
-    border-color:#ff4b2b;
-    box-shadow:0 15px 35px rgba(255,75,43,.2);
-}
+          <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
+            ✅ متابعة وتحليل النتائج لتحسين الأداء باستمرار.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.icon{
-    font-size:24px;
-    color:#ff4b2b;
-    margin-bottom:10px;
-}
+  {/* CTA */}
+  <section className="py-20 px-6 bg-gradient-to-r from-red-700 to-red-500 text-center">
+    <div className="max-w-3xl mx-auto">
+      <h2 className="text-5xl font-extrabold mb-6">
+        جاهز تكبر مشروعك؟
+      </h2>
 
-.card b{
-    display:block;
-    margin-bottom:6px;
-}
+      <p className="text-xl leading-9 mb-10 text-white/90">
+        ابدأ الآن مع التاجر للدعاية والإعلان واحصل على حملات احترافية تزيد من مبيعاتك وانتشارك.
+      </p>
 
-/* AI SECTION */
-.ai{
-    max-width:900px;
-    margin:auto;
-    background:#121212;
-    padding:20px;
-    border-radius:20px;
-}
+      <a
+        href="https://wa.me/1024941083"
+        className="inline-block bg-black hover:bg-gray-900 transition px-10 py-5 rounded-2xl text-xl font-bold shadow-2xl"
+      >
+        ابدأ الآن
+      </a>
+    </div>
+  </section>
 
-.ai img{
-    width:100%;
-    border-radius:15px;
-    margin-bottom:15px;
-}
+  {/* Footer */}
+  <footer className="bg-black border-t border-white/10 py-10 px-6">
+    <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div>
+        <h3 className="text-2xl font-bold text-red-500">
+          التاجر للدعاية والإعلان
+        </h3>
+        <p className="text-gray-400 mt-2">
+          جميع الحقوق محفوظة © 2026
+        </p>
+      </div>
 
-/* SCROLL */
-.fade{
-    opacity:0;
-    transform:translateY(50px);
-    transition:1s;
-}
-.fade.show{
-    opacity:1;
-    transform:translateY(0);
-}
+      <div className="flex gap-4 text-lg">
+        <a href="https://wa.me/1024941083" className="hover:text-red-500 transition">
+          واتساب
+        </a>
 
-/* WHATSAPP */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-    width:60px;
-    height:60px;
-    background:#25D366;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:30px;
-    color:#fff;
-    text-decoration:none;
-    z-index:9999;
-}
-</style>
-</head>
+        <a href="#services" className="hover:text-red-500 transition">
+          الخدمات
+        </a>
 
-<body>
-
-<!-- NAV -->
-<nav>
-<h1>التاجر للدعاية</h1>
-<div>
-<a href="#services">الخدمات</a>
-<a href="#ai">AI</a>
-<a href="#contact">تواصل</a>
-</div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-<div class="logo-glow">
-<img src="https://raw.githubusercontent.com/hnanamr656-prog/Company-website/main/logo.jpeg">
-</div>
-<h2>نحوّل فكرتك إلى علامة قوية</h2>
-<p>حلول تسويق رقمية احترافية</p>
-<a class="btn" href="https://wa.me/201024941083">ابدأ الآن</a>
+        <a href="#" className="hover:text-red-500 transition">
+          الرئيسية
+        </a>
+      </div>
+    </div>
+  </footer>
 </div>
 
-<!-- COUNTERS -->
-<div class="stats fade">
-<div>
-<h3 class="counter" data-target="500">0</h3>
-<p>عميل</p>
-</div>
-<div>
-<h3 class="counter" data-target="1200">0</h3>
-<p>حملة</p>
-</div>
-<div>
-<h3 class="counter" data-target="5">0</h3>
-<p>سنوات</p>
-</div>
-</div>
-
-<!-- SERVICES -->
-<section id="services" class="fade">
-<h2 class="section-title">خدماتنا</h2>
-
-<div class="cards">
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-bullhorn"></i></div>
-<b>إعلانات ممولة</b>
-<p>سوشيال ميديا + تيك توك</p>
-</div>
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-robot"></i></div>
-<b>بوتات تيليجرام</b>
-<p>تطوير + إدارة</p>
-</div>
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-chart-line"></i></div>
-<b>نمو الحسابات</b>
-<p>متابعين + تفاعل</p>
-</div>
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-globe"></i></div>
-<b>إنشاء مواقع</b>
-<p>تصميم احترافي</p>
-</div>
-
-</div>
-</section>
-
-<!-- AI -->
-<section id="ai" class="fade">
-<h2 class="section-title">AI VISUAL</h2>
-
-<div class="ai">
-<img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg">
-<p>نصمم حضور بصري احترافي يعكس قوة مشروعك</p>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="fade">
-<h2 class="section-title">تواصل معنا</h2>
-<a class="btn" href="https://wa.me/201024941083">واتساب مباشر</a>
-</section>
-
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/201024941083">
-<i class="fa-brands fa-whatsapp"></i>
-</a>
-
-<script>
-
-/* COUNTER */
-const counters=document.querySelectorAll('.counter');
-
-counters.forEach(counter=>{
-let target=+counter.getAttribute('data-target');
-let count=0;
-
-let update=()=>{
-if(count<target){
-count++;
-counter.innerText=count;
-setTimeout(update,20);
-}else{
-counter.innerText=target;
-}
-};
-update();
-});
-
-/* SCROLL ANIMATION */
-const faders=document.querySelectorAll('.fade');
-
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('show');
-}
-});
-});
-
-faders.forEach(el=>observer.observe(el));
-
-/* CARDS */
-const cards=document.querySelectorAll('.card');
-const obs=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting)e.target.classList.add('show');
-});
-});
-
-cards.forEach(c=>obs.observe(c));
-
-</script>
-
-</body>
-</html>
+); }
