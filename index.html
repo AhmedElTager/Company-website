@@ -73,10 +73,52 @@ transition: 0.3s;
 color: #00ffd5;
 }
 
+/* ================= PARTNERS SLIDER (TOP POSITION) ================= */
+
+.slider-container {
+background: rgba(255, 255, 255, 0.02);
+padding: 18px 0;
+border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+overflow: hidden;
+position: relative;
+width: 100%;
+z-index: 10;
+}
+
+.slider-track {
+display: flex;
+gap: 50px;
+width: max-content;
+animation: scrollTrack 28s linear infinite;
+}
+
+.slide {
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 18px;
+font-weight: bold;
+color: rgba(0, 255, 213, 0.75);
+text-shadow: 0 0 10px rgba(0, 255, 213, 0.1);
+transition: 0.3s;
+cursor: default;
+white-space: nowrap;
+}
+
+.slide i {
+font-size: 20px;
+color: #00ffd5;
+}
+
+@keyframes scrollTrack {
+0% { transform: translateX(0); }
+100% { transform: translateX(50%); }
+}
+
 /* ================= HERO ================= */
 
 .hero{
-height:100vh;
+height: calc(100vh - 120px);
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -244,54 +286,6 @@ color: rgba(255, 255, 255, 0.7);
 margin: 0;
 }
 
-/* ================= PARTNERS SLIDER ================= */
-
-.slider-container {
-background: rgba(255, 255, 255, 0.02);
-padding: 30px 0;
-border-top: 1px solid rgba(255, 255, 255, 0.05);
-border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-overflow: hidden;
-position: relative;
-width: 100%;
-}
-
-.slider-track {
-display: flex;
-gap: 60px;
-width: max-content;
-animation: scrollTrack 25s linear infinite;
-}
-
-.slide {
-display: flex;
-align-items: center;
-gap: 12px;
-font-size: 20px;
-font-weight: bold;
-color: rgba(255, 255, 255, 0.4);
-transition: 0.3s;
-cursor: default;
-}
-
-.slide i {
-font-size: 24px;
-color: rgba(0, 255, 213, 0.4);
-}
-
-.slide:hover {
-color: #00ffd5;
-}
-
-.slide:hover i {
-color: #00ffd5;
-}
-
-@keyframes scrollTrack {
-0% { transform: translateX(0); }
-100% { transform: translateX(50%); }
-}
-
 /* ================= PROCESS SECTION ================= */
 
 .process-grid {
@@ -344,69 +338,6 @@ font-size: 14px;
 line-height: 1.6;
 color: rgba(255, 255, 255, 0.7);
 margin: 0;
-}
-
-/* ================= FAQ ACCORDION ================= */
-
-.faq-container {
-max-width: 750px;
-margin: 0 auto;
-padding: 20px;
-text-align: right;
-}
-
-.faq-item {
-background: rgba(255, 255, 255, 0.03);
-border: 1px solid rgba(255, 255, 255, 0.05);
-border-radius: 14px;
-margin-bottom: 15px;
-overflow: hidden;
-transition: 0.3s;
-}
-
-.faq-question {
-padding: 20px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-cursor: pointer;
-font-weight: bold;
-font-size: 16px;
-user-select: none;
-}
-
-.faq-question:hover {
-background: rgba(255, 255, 255, 0.05);
-color: #00ffd5;
-}
-
-.faq-answer {
-max-height: 0;
-overflow: hidden;
-transition: max-height 0.3s ease-out;
-background: rgba(7, 10, 18, 0.5);
-border-top: 0 solid rgba(255,255,255,0.05);
-}
-
-.faq-answer p {
-padding: 20px;
-margin: 0;
-line-height: 1.8;
-color: rgba(255, 255, 255, 0.8);
-font-size: 15px;
-}
-
-.faq-icon {
-transition: transform 0.3s;
-color: #00ffd5;
-}
-
-.faq-item.active .faq-icon {
-transform: rotate(180deg);
-}
-
-.faq-item.active .faq-answer {
-border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 /* ================= POPUP ================= */
@@ -628,11 +559,35 @@ nav{ padding:15px 20px; justify-content: center; }
     <a href="#services">خدماتنا</a>
     <a href="#why-us">مميزاتنا</a>
     <a href="#process">خطوات العمل</a>
-    <a href="#faq">الأسئلة الشائعة</a>
     <a href="#order">اطلب الآن</a>
 </div>
 
 </nav>
+
+<div class="slider-container">
+
+<div class="slider-track">
+<div class="slide"><i class="fas fa-building"></i> مكاتب</div>
+<div class="slide"><i class="fas fa-industry"></i> مصانع</div>
+<div class="slide"><i class="fas fa-ship"></i> مستوردين</div>
+<div class="slide"><i class="fab fa-telegram-plane"></i> قنوات تيليجرام تجارية</div>
+<div class="slide"><i class="fas fa-store"></i> براندات ملابس وأحذية</div>
+<div class="slide"><i class="fas fa-graduation-cap"></i> أكاديميات تعليمية</div>
+<div class="slide"><i class="fas fa-utensils"></i> مطاعم وكافيهات</div>
+<div class="slide"><i class="fas fa-laptop-house"></i> شركات عقارات</div>
+<div class="slide"><i class="fas fa-cart-shopping"></i> متاجر إلكترونية</div>
+<div class="slide"><i class="fas fa-building"></i> مكاتب</div>
+<div class="slide"><i class="fas fa-industry"></i> مصانع</div>
+<div class="slide"><i class="fas fa-ship"></i> مستوردين</div>
+<div class="slide"><i class="fab fa-telegram-plane"></i> قنوات تيليجرام تجارية</div>
+<div class="slide"><i class="fas fa-store"></i> براندات ملابس وأحذية</div>
+<div class="slide"><i class="fas fa-graduation-cap"></i> أكاديميات تعليمية</div>
+<div class="slide"><i class="fas fa-utensils"></i> مطاعم وكافيهات</div>
+<div class="slide"><i class="fas fa-laptop-house"></i> شركات عقارات</div>
+<div class="slide"><i class="fas fa-cart-shopping"></i> متاجر إلكترونية</div>
+</div>
+
+</div>
 
 <header class="hero">
 
@@ -812,25 +767,6 @@ nav{ padding:15px 20px; justify-content: center; }
 
 </section>
 
-<div class="slider-container">
-
-<div class="slider-track">
-<div class="slide"><i class="fab fa-telegram-plane"></i> قنوات تيليجرام التجارية</div>
-<div class="slide"><i class="fas fa-store"></i> براندات الملابس والأحذية</div>
-<div class="slide"><i class="fas fa-graduation-cap"></i> الأكاديميات التعليمية</div>
-<div class="slide"><i class="fas fa-utensils"></i> المطاعم والكافيهات</div>
-<div class="slide"><i class="fas fa-laptop-house"></i> شركات العقارات</div>
-<div class="slide"><i class="fas fa-cart-shopping"></i> المتاجر الإلكترونية</div>
-<div class="slide"><i class="fab fa-telegram-plane"></i> قنوات تيليجرام التجارية</div>
-<div class="slide"><i class="fas fa-store"></i> براندات الملابس والأحذية</div>
-<div class="slide"><i class="fas fa-graduation-cap"></i> الأكاديميات التعليمية</div>
-<div class="slide"><i class="fas fa-utensils"></i> المطاعم والكافيهات</div>
-<div class="slide"><i class="fas fa-laptop-house"></i> شركات العقارات</div>
-<div class="slide"><i class="fas fa-cart-shopping"></i> المتاجر الإلكترونية</div>
-</div>
-
-</div>
-
 <section id="process" class="section">
 
 <h2>خطوات العمل معنا</h2>
@@ -869,46 +805,6 @@ nav{ padding:15px 20px; justify-content: center; }
 
 </section>
 
-<section id="faq" class="section">
-
-<h2>الأسئلة الشائعة</h2>
-
-<div class="faq-container">
-
-<div class="faq-item">
-<div class="faq-question">
-<span>كم يستغرق تنفيذ وتفعيل الحملات الإعلانية أو البوتات؟</span>
-<i class="fas fa-chevron-down faq-icon"></i>
-</div>
-<div class="faq-answer">
-<p>نهتم دائماً بعنصر الوقت؛ تبدأ مراجعة طلبك وتنسيقه فور تقديمه مباشرة. يتم تفعيل الإعلانات الممولة وإعداد الخدمات الرقمية أو البوتات خلال مدة تتراوح بين 12 إلى 24 ساعة فقط، لضمان انطلاق مشروعك بدون أي تأخير.</p>
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question">
-<span>هل تزويد المتابعين وأعضاء التيليجرام آمن تماماً؟</span>
-<i class="fas fa-chevron-down faq-icon"></i>
-</div>
-<div class="faq-answer">
-<p>بكل تأكيد، أمان حسابات وقنوات عملائنا هو أولويتنا القصوى. نعتمد على استراتيجيات وطرق تزويد متطورة ومطابقة تماماً لشروط وقوانين منصات السوشيال ميديا (حقيقية وآمنة 100%)، مما يضمن لك زيادة حقيقية وثابتة بدون أي مخاطر أو حظر.</p>
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question">
-<span>كيف يمكنني الدفع مقابل الخدمات؟</span>
-<i class="fas fa-chevron-down faq-icon"></i>
-</div>
-<div class="faq-answer">
-<p>نوفر لكم خيارات دفع متنوعة، مرنة، وآمنة تماماً لتناسب كافة العملاء من مختلف الدول. بمجرد إرسال طلبك، سيوضح لك فريق الدعم الفني عبر الواتساب أفضل وأسهل طريقة دفع متاحة ومناسبة لك لتأكيد البدء فوراً.</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
 <section id="about" class="section">
 
 <h2>من نحن</h2>
@@ -917,4 +813,104 @@ nav{ padding:15px 20px; justify-content: center; }
 
 شركة التاجر للدعاية والإعلان متخصصة في تنفيذ الحملات الإعلانية
 وصناعة الهوية البصرية وإدارة السوشيال ميديا بشكل احترافي وبخبرة تمتد لأكثر من 10 سنوات لنساعد
-الشركات والمتاجر ع
+الشركات والمتاجر على النمو السريع وتحقيق أفضل العوائد الربحية.
+
+</p>
+
+</section>
+
+<section id="order" class="section">
+
+<h2>اطلب خدمتك الآن</h2>
+
+<form class="form" onsubmit="sendToWhatsApp(event)">
+
+<input type="text" id="name" placeholder="الاسم" required>
+
+<input type="text" id="service" placeholder="الخدمة المطلوبة" required>
+
+<input type="text" id="phone" placeholder="رقم الهاتف" required>
+
+<textarea id="details" placeholder="تفاصيل إضافية أو ملاحظات خاصة"></textarea>
+
+<button class="btn" type="submit">
+إرسال الطلب عبر واتساب
+</button>
+
+</form>
+
+</section>
+
+<section class="section">
+
+<h2>تابعنا على منصاتنا</h2>
+
+<div class="social-links">
+
+<a href="https://t.me/+5TSlpPP48CFhMzg8" target="_blank">
+<i class="fab fa-telegram"></i>
+</a>
+
+<a href="https://www.facebook.com/share/1FaM3PKKp3/" target="_blank">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="https://www.instagram.com/el_tager_1?igsh=dDRxd2hpbnplYzNo" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.tiktok.com/@el_tageer1?_r=1&_t=ZS-96llZ93oZiX" target="_blank">
+<i class="fab fa-tiktok"></i>
+</a>
+
+<a href="https://whatsapp.com/channel/0029VantOMtAInPff6vNpo1z" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>تواصل معنا مباشر</h2>
+
+<a class="btn" href="https://wa.me/201024941083">
+محادثة واتساب فورية
+</a>
+
+</section>
+
+<a class="whatsapp" href="https://wa.me/201024941083">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<footer>
+© 2026 التاجر للدعاية والإعلان. جميع الحقوق محفوظة.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+
+// تشغيل جزيئات الخلفية المضيئة
+particlesJS("particles-js",{
+particles:{
+number:{value:40},
+size:{value:2.5},
+move:{speed:1},
+line_linked:{
+enable:true,
+distance:130
+}
+}
+});
+
+/* ================= SERVICES POPUP FUNCTIONS ================= */
+let currentOpenServiceName = "";
+
+function openService(title,text,imgUrl){
+currentOpenServiceName = title;
+document.getElementById("popupTitle").innerText=title;
+document.getElementById("popupText").innerText=text;
+document.getElementById("popupImage").src=imgUr
