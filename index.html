@@ -41,9 +41,9 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 30px;
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(10px);
+padding:15px 30px;
+background:rgba(7, 10, 18, 0.8);
+backdrop-filter:blur(12px);
 position:sticky;
 top:0;
 z-index:1000;
@@ -53,7 +53,44 @@ border-bottom:1px solid rgba(255,255,255,.05);
 nav h1{
 color:#00ffd5;
 margin:0;
-font-size:24px;
+font-size:22px;
+}
+
+.nav-links {
+display: flex;
+gap: 20px;
+align-items: center;
+}
+
+.nav-links a {
+color: rgba(255, 255, 255, 0.8);
+text-decoration: none;
+font-size: 15px;
+transition: 0.3s;
+}
+
+.nav-links a:hover {
+color: #00ffd5;
+}
+
+.share-btn {
+background: rgba(0, 255, 213, 0.1);
+border: 1px solid #00ffd5;
+color: #00ffd5;
+padding: 8px 14px;
+border-radius: 20px;
+cursor: pointer;
+font-size: 13px;
+font-weight: bold;
+transition: 0.3s;
+display: flex;
+align-items: center;
+gap: 6px;
+}
+
+.share-btn:hover {
+background: #00ffd5;
+color: #000;
 }
 
 /* ================= HERO ================= */
@@ -87,7 +124,7 @@ font-size:18px;
 margin-top:25px;
 }
 
-/* ================= SECTION ================= */
+/* ================= SECTION GENERAL ================= */
 
 .section{
 padding:80px 20px;
@@ -135,17 +172,10 @@ border:1px solid rgba(255,255,255,.05);
 transition:.3s;
 }
 
-.stat:hover{
-transform:translateY(-5px);
-box-shadow:0 15px 40px rgba(0,255,213,.15);
-border-color:#00ffd5;
-}
-
 .stat h2{
 font-size:48px;
 color:#00ffd5;
 text-shadow:0 0 20px rgba(0,255,213,.3);
-letter-spacing:1px;
 font-weight:bold;
 margin:0;
 }
@@ -190,6 +220,213 @@ margin-bottom:15px;
 .card h3{
 margin:10px 0 0 0;
 font-size:20px;
+}
+
+/* ================= WHY US (NEW) ================= */
+
+.features-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+gap: 25px;
+padding: 20px 40px;
+}
+
+.feature-card {
+background: rgba(255, 255, 255, 0.02);
+border: 1px solid rgba(255, 255, 255, 0.05);
+padding: 30px 20px;
+border-radius: 20px;
+backdrop-filter: blur(10px);
+transition: 0.3s;
+}
+
+.feature-card:hover {
+border-color: #00ffd5;
+background: rgba(0, 255, 213, 0.02);
+}
+
+.feature-card i {
+font-size: 40px;
+color: #00ffd5;
+margin-bottom: 20px;
+text-shadow: 0 0 15px rgba(0, 255, 213, 0.4);
+}
+
+.feature-card h3 {
+font-size: 20px;
+margin-bottom: 12px;
+}
+
+.feature-card p {
+font-size: 14px;
+line-height: 1.6;
+color: rgba(255, 255, 255, 0.7);
+margin: 0;
+}
+
+/* ================= PARTNERS SLIDER (NEW) ================= */
+
+.slider-container {
+background: rgba(255, 255, 255, 0.02);
+padding: 30px 0;
+border-top: 1px solid rgba(255, 255, 255, 0.05);
+border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+overflow: hidden;
+position: relative;
+width: 100%;
+}
+
+.slider-track {
+display: flex;
+gap: 60px;
+width: max-content;
+animation: scrollTrack 25s linear infinite;
+}
+
+.slide {
+display: flex;
+align-items: center;
+gap: 12px;
+font-size: 20px;
+font-weight: bold;
+color: rgba(255, 255, 255, 0.4);
+transition: 0.3s;
+cursor: default;
+}
+
+.slide i {
+font-size: 24px;
+color: rgba(0, 255, 213, 0.4);
+}
+
+.slide:hover {
+color: #00ffd5;
+}
+
+.slide:hover i {
+color: #00ffd5;
+}
+
+@keyframes scrollTrack {
+0% { transform: translateX(0); }
+100% { transform: translateX(50%); }
+}
+
+/* ================= PROCESS SECTION ================= */
+
+.process-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 25px;
+padding: 20px 40px;
+}
+
+.process-card {
+background: rgba(255, 255, 255, .03);
+border: 1px solid rgba(255, 255, 255, .05);
+padding: 30px 20px;
+border-radius: 20px;
+backdrop-filter: blur(10px);
+transition: .3s;
+position: relative;
+}
+
+.process-card:hover {
+border-color: #00ffd5;
+}
+
+.process-step {
+position: absolute;
+top: 15px;
+right: 20px;
+font-size: 14px;
+font-weight: bold;
+color: #00ffd5;
+background: rgba(0, 255, 213, 0.1);
+padding: 4px 10px;
+border-radius: 10px;
+}
+
+.process-card i {
+font-size: 32px;
+color: #00ffd5;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+.process-card h3 {
+margin: 10px 0;
+font-size: 18px;
+}
+
+.process-card p {
+font-size: 14px;
+line-height: 1.6;
+color: rgba(255, 255, 255, 0.7);
+margin: 0;
+}
+
+/* ================= FAQ ACCORDION (NEW) ================= */
+
+.faq-container {
+max-width: 750px;
+margin: 0 auto;
+padding: 20px;
+text-align: right;
+}
+
+.faq-item {
+background: rgba(255, 255, 255, 0.03);
+border: 1px solid rgba(255, 255, 255, 0.05);
+border-radius: 14px;
+margin-bottom: 15px;
+overflow: hidden;
+transition: 0.3s;
+}
+
+.faq-question {
+padding: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+cursor: pointer;
+font-weight: bold;
+font-size: 16px;
+user-select: none;
+}
+
+.faq-question:hover {
+background: rgba(255, 255, 255, 0.05);
+color: #00ffd5;
+}
+
+.faq-answer {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease-out;
+background: rgba(7, 10, 18, 0.5);
+border-top: 0 solid rgba(255,255,255,0.05);
+}
+
+.faq-answer p {
+padding: 20px;
+margin: 0;
+line-height: 1.8;
+color: rgba(255, 255, 255, 0.8);
+font-size: 15px;
+}
+
+.faq-icon {
+transition: transform 0.3s;
+color: #00ffd5;
+}
+
+.faq-item.active .faq-icon {
+transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 /* ================= POPUP ================= */
@@ -268,62 +505,6 @@ color:#00ffd5;
 width:100%;
 text-align:center;
 box-sizing: border-box;
-}
-
-/* ================= PROCESS SECTION (NEW) ================= */
-
-.process-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 25px;
-padding: 20px 40px;
-}
-
-.process-card {
-background: rgba(255, 255, 255, .03);
-border: 1px solid rgba(255, 255, 255, .05);
-padding: 30px 20px;
-border-radius: 20px;
-backdrop-filter: blur(10px);
-transition: .3s;
-position: relative;
-}
-
-.process-card:hover {
-border-color: #00ffd5;
-transform: translateY(-5px);
-}
-
-.process-step {
-position: absolute;
-top: 15px;
-right: 20px;
-font-size: 14px;
-font-weight: bold;
-color: #00ffd5;
-background: rgba(0, 255, 213, 0.1);
-padding: 4px 10px;
-border-radius: 10px;
-}
-
-.process-card i {
-font-size: 32px;
-color: #00ffd5;
-margin-top: 15px;
-margin-bottom: 15px;
-}
-
-.process-card h3 {
-margin: 10px 0;
-font-size: 18px;
-color: #fff;
-}
-
-.process-card p {
-font-size: 14px;
-line-height: 1.6;
-color: rgba(255, 255, 255, 0.7);
-margin: 0;
 }
 
 /* ================= FORM ================= */
@@ -409,7 +590,7 @@ border-color:#00ffd5;
 color:#00ffd5;
 }
 
-/* ================= WHATSAPP ================= */
+/* ================= WHATSAPP FLOATING ================= */
 
 .whatsapp{
 position:fixed;
@@ -442,11 +623,13 @@ color:rgba(255,255,255,.6);
 }
 
 @media(max-width:768px){
+nav{ padding:15px 20px; }
+.nav-links { display: none; } /* إخفاء روابط التنقل العادية في الموبايل لتوفير مساحة للزر الشير */
 .hero h2{ font-size:32px; }
 .hero p{ font-size:16px; }
 .stats{ gap:15px; }
 .stat{ width:100%; min-width: 100%; box-sizing: border-box;}
-.grid, .process-grid { padding:15px; grid-template-columns: 1fr; }
+.grid, .features-grid, .process-grid { padding:15px; grid-template-columns: 1fr; }
 }
 
 </style>
@@ -460,6 +643,18 @@ color:rgba(255,255,255,.6);
 <nav>
 
 <h1>التاجر للدعاية</h1>
+
+<div class="nav-links">
+    <a href="#services">خدماتنا</a>
+    <a href="#why-us">مميزاتنا</a>
+    <a href="#process">خطوات العمل</a>
+    <a href="#faq">الأسئلة الشائعة</a>
+    <a href="#order">اطلب الآن</a>
+</div>
+
+<button class="share-btn" onclick="copySiteLink()">
+    <i class="fas fa-share-nodes"></i> نسخ الرابط
+</button>
 
 </nav>
 
@@ -607,6 +802,59 @@ color:rgba(255,255,255,.6);
 
 </div>
 
+<section id="why-us" class="section">
+
+<h2>لماذا تختار شركة التاجر؟</h2>
+
+<div class="features-grid">
+
+<div class="feature-card">
+<i class="fas fa-bolt"></i>
+<h3>تنفيذ فائق السرعة</h3>
+<p>نحن نقدّر وقتك، لذلك نلتزم بتسليم وتنفيذ جميع الخدمات والطلبات بدقة وبأقصى سرعة ممكنة.</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-headset"></i>
+<h3>دعم فني 24/7</h3>
+<p>فريق خدمة العملاء متواجد دائماً للإجابة على استفساراتكم ومتابعة طلباتكم على مدار الساعة.</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-crosshairs"></i>
+<h3>استهداف ذكي وصحيح</h3>
+<p>حملاتنا الإعلانية مبنية على دراسة السوق للوصول إلى الجمهور المهتم بنشاطك الفعلي لضمان المبيعات.</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-tags"></i>
+<h3>أسعار تنافسية</h3>
+<p>نوفر باقات وأسعار مرنة ومناسبة تناسب المتاجر الناشئة والشركات الكبرى بأعلى جودة احترافية.</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="slider-container">
+
+<div class="slider-track">
+<div class="slide"><i class="fab fa-telegram-plane"></i> قنوات تيليجرام التجارية</div>
+<div class="slide"><i class="fas fa-store"></i> براندات الملابس والأحذية</div>
+<div class="slide"><i class="fas fa-graduation-cap"></i> الأكاديميات التعليمية</div>
+<div class="slide"><i class="fas fa-utensils"></i> المطاعم والكافيهات</div>
+<div class="slide"><i class="fas fa-laptop-house"></i> شركات العقارات</div>
+<div class="slide"><i class="fas fa-cart-shopping"></i> المتاجر الإلكترونية</div>
+<div class="slide"><i class="fab fa-telegram-plane"></i> قنوات تيليجرام التجارية</div>
+<div class="slide"><i class="fas fa-store"></i> براندات الملابس والأحذية</div>
+<div class="slide"><i class="fas fa-graduation-cap"></i> الأكاديميات التعليمية</div>
+<div class="slide"><i class="fas fa-utensils"></i> المطاعم والكافيهات</div>
+<div class="slide"><i class="fas fa-laptop-house"></i> شركات العقارات</div>
+<div class="slide"><i class="fas fa-cart-shopping"></i> المتاجر الإلكترونية</div>
+</div>
+
+</div>
+
 <section id="process" class="section">
 
 <h2>خطوات العمل معنا</h2>
@@ -645,181 +893,48 @@ color:rgba(255,255,255,.6);
 
 </section>
 
-<section id="about" class="section">
+<section id="faq" class="section">
 
-<h2>من نحن</h2>
+<h2>الأسئلة الشائعة</h2>
 
-<p style="max-width:800px;margin:auto;line-height:2;font-size:18px; color:rgba(255,255,255,.85);">
+<div class="faq-container">
 
-شركة التاجر للدعاية والإعلان متخصصة في تنفيذ الحملات الإعلانية
-وصناعة الهوية البصرية وإدارة السوشيال ميديا بشكل احترافي وبخبرة تمتد لأكثر من 10 سنوات لنساعد
-الشركات والمتاجر على النمو السريع وتحقيق أفضل العوائد الربحية.
+<div class="faq-item">
+<div class="faq-question">
+<span>كم يستغرق تنفيذ وتفعيل الحملات الإعلانية أو البوتات؟</span>
+<i class="fas fa-chevron-down faq-icon"></i>
+</div>
+<div class="faq-answer">
+<p>يبدأ العمل فوراً بعد التنسيق مع الدعم الفني، وعادةً ما تستغرق خدمات السوشيال ميديا والبوتات من 24 إلى 48 ساعة كحد أقصى لتكون جاهزة بالكامل.</p>
+</div>
+</div>
 
-</p>
+<div class="faq-item">
+<div class="faq-question">
+<span>هل تزويد المتابعين وأعضاء التيليجرام آمن تماماً؟</span>
+<i class="fas fa-chevron-down faq-icon"></i>
+</div>
+<div class="faq-answer">
+<p>نعم، جميع طرق التزويد والدعم لدينا متوافقة مع شروط وقوانين المنصات، وتتم بأساليب آمنة 100% لا تشكل أي خطورة على حسابك أو قناتك.</p>
+</div>
+</div>
 
-</section>
-
-<section id="order" class="section">
-
-<h2>اطلب خدمتك الآن</h2>
-
-<form class="form" onsubmit="sendToWhatsApp(event)">
-
-<input type="text" id="name" placeholder="الاسم" required>
-
-<input type="text" id="service" placeholder="الخدمة المطلوبة" required>
-
-<input type="text" id="phone" placeholder="رقم الهاتف" required>
-
-<textarea id="details" placeholder="تفاصيل إضافية أو ملاحظات خاصة"></textarea>
-
-<button class="btn" type="submit">
-إرسال الطلب عبر واتساب
-</button>
-
-</form>
-
-</section>
-
-<section class="section">
-
-<h2>تابعنا على منصاتنا</h2>
-
-<div class="social-links">
-
-<a href="https://t.me/+5TSlpPP48CFhMzg8" target="_blank">
-<i class="fab fa-telegram"></i>
-</a>
-
-<a href="https://www.facebook.com/share/1FaM3PKKp3/" target="_blank">
-<i class="fab fa-facebook-f"></i>
-</a>
-
-<a href="https://www.instagram.com/el_tager_1?igsh=dDRxd2hpbnplYzNo" target="_blank">
-<i class="fab fa-instagram"></i>
-</a>
-
-<a href="https://www.tiktok.com/@el_tageer1?_r=1&_t=ZS-96llZ93oZiX" target="_blank">
-<i class="fab fa-tiktok"></i>
-</a>
-
-<a href="https://whatsapp.com/channel/0029VantOMtAInPff6vNpo1z" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
+<div class="faq-item">
+<div class="faq-question">
+<span>كيف يمكنني الدفع مقابل الخدمات؟</span>
+<i class="fas fa-chevron-down faq-icon"></i>
+</div>
+<div class="faq-answer">
+<p>نوفر وسائل دفع متعددة وسهلة لتناسب الجميع، يتم توضيحها لك وتسهيلها فور تواصلك مع خدمة العملاء عبر واتساب لتأكيد الطلب.</p>
+</div>
+</div>
 
 </div>
 
 </section>
 
-<section class="section">
+<section id="about" class="section">
 
-<h2>تواصل معنا مباشر</h2>
+<h2>من نحن</h2>
 
-<a class="btn" href="https://wa.me/201024941083">
-محادثة واتساب فورية
-</a>
-
-</section>
-
-<a class="whatsapp" href="https://wa.me/201024941083">
-<i class="fa-brands fa-whatsapp"></i>
-</a>
-
-<footer>
-© 2026 التاجر للدعاية والإعلان. جميع الحقوق محفوظة.
-</footer>
-
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-<script>
-
-particlesJS("particles-js",{
-particles:{
-number:{value:40},
-size:{value:2.5},
-move:{speed:1},
-line_linked:{
-enable:true,
-distance:130
-}
-}
-});
-
-let currentOpenServiceName = "";
-
-function openService(title,text,imgUrl){
-
-currentOpenServiceName = title;
-
-document.getElementById("popupTitle").innerText=title;
-
-document.getElementById("popupText").innerText=text;
-
-document.getElementById("popupImage").src=imgUrl;
-
-document.getElementById("servicePopup").style.display="flex";
-
-}
-
-function closeService(){
-
-document.getElementById("servicePopup").style.display="none";
-
-}
-
-function orderCurrentService(){
-
-if(currentOpenServiceName !== "") {
-
-document.getElementById("service").value = currentOpenServiceName;
-
-closeService();
-
-window.location.href = "#order";
-
-}
-
-}
-
-window.addEventListener("click",(e)=>{
-
-let popup=document.getElementById("servicePopup");
-
-if(e.target===popup){
-
-popup.style.display="none";
-
-}
-
-});
-
-function sendToWhatsApp(e){
-
-e.preventDefault();
-
-let name=document.getElementById("name").value;
-
-let service=document.getElementById("service").value;
-
-let phone=document.getElementById("phone").value;
-
-let details=document.getElementById("details").value;
-
-let msg=`طلب خدمة جديد:
-الاسم: ${name}
-الخدمة المطلوبة: ${service}
-رقم الهاتف: ${phone}
-تفاصيل إضافية: ${details}`;
-
-window.open(
-"https://wa.me/201024941083?text="+encodeURIComponent(msg),
-"_blank"
-);
-
-}
-
-</script>
-
-</body>
-
-</html>
+<p style="max-width:800px;margin:auto;lin
