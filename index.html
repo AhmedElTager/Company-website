@@ -17,7 +17,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 10000;
+            z-index: 99999; /* تم رفع الطبقة ليكون فوق شريط الإعلانات وقت التحميل */
             transition: opacity 0.5s ease, visibility 0.5s;
         }
 
@@ -43,6 +43,7 @@
         /* كود تنسيق الموقع الأصلي بالكامل */
         body {
             margin: 0;
+            padding-top: 40px; /* تم إضافة مساحة هنا بدلاً من الـ nav لضمان عدم تداخل أي عنصر مع الشريط */
             font-family: Arial, sans-serif;
             background: #070a12;
             color: #fff;
@@ -50,7 +51,7 @@
             scroll-behavior: smooth;
         }
 
-        /* ================= TOP BAR (الشريط الإعلاني المعدل والمصلح للغة العربية) ================= */
+        /* ================= TOP BAR (الشريط الإعلاني المتحرك) ================= */
         .top-bar {
             position: fixed;
             top: 0;
@@ -70,8 +71,8 @@
 
         .top-bar span {
             display: inline-block;
-            padding-left: 100%; /* تباعد من اليسار ليتناسب مع الحركة العربية RTL */
-            animation: marquee 25s linear infinite; /* حركة مريحة للعين لقراءة النص */
+            padding-left: 100%; /* حركة متوافقة مع اللغة العربية RTL */
+            animation: marquee 25s linear infinite;
             line-height: 40px;
         }
 
@@ -94,7 +95,7 @@
             background: #070a12;
         }
 
-        /* تعديل الـ Top ليظهر الـ Nav تحت شريط الإعلانات تماماً دون تداخل */
+        /* إرجاع الـ nav لأصله لتجنب تعليق الشاشة */
         nav {
             display: flex;
             justify-content: space-between;
@@ -103,7 +104,7 @@
             background: rgba(255, 255, 255, .05);
             backdrop-filter: blur(10px);
             position: sticky;
-            top: 40px; 
+            top: 0; 
             z-index: 1000;
         }
 
@@ -281,7 +282,7 @@
             font-size: 20px;
         }
 
-        /* تنسيق الـ Popup المسؤول عن عرض تفاصيل الخدمات عند الضغط */
+        /* تنسيق الـ Popup */
         .popup {
             position: fixed;
             top: 0;
@@ -608,4 +609,4 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // إخفاء الـ Loader الأصلي بعد ثانيتين ونصف ت
+        // إخفاء الـ Loa
