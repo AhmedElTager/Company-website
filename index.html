@@ -6,49 +6,41 @@
 <title>التاجر للدعاية والإعلان</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-/* ================= GLOBAL ================= */
-body{ margin:0; font-family:Arial; background:#070a12; color:#fff; overflow-x:hidden; scroll-behavior:smooth; }
-#particles-js{ position:fixed; top:0; left:0; width:100%; height:100%; z-index:-3; background:#070a12; }
+    /* التنسيقات الأصلية كما هي */
+    body{ margin:0; font-family:Arial; background:#070a12; color:#fff; overflow-x:hidden; scroll-behavior:smooth; }
+    #particles-js{ position:fixed; top:0; left:0; width:100%; height:100%; z-index:-3; background:#070a12; }
+    .loader-screen{ position:fixed; top:0; left:0; width:100%; height:100vh; background:#070a12; display:flex; justify-content:center; align-items:center; z-index:9999; transition:1s; }
+    .loader-content h1{ color:#00ffd5; font-size:40px; margin-bottom:10px; }
+    .loader-ring{ width:50px; height:50px; border:4px solid rgba(255,255,255,.1); border-top:4px solid #00ffd5; border-radius:50%; margin:auto; animation:spin 1s linear infinite; }
+    @keyframes spin{ to{ transform:rotate(360deg); } }
+    nav{ display:flex; justify-content:space-between; align-items:center; padding:18px 30px; background:rgba(255,255,255,.05); backdrop-filter:blur(10px); position:sticky; top:0; z-index:1000; }
+    nav h1{ color:#00ffd5; }
+    
+    /* تنسيق الشريط المتحرك الجديد */
+    .slider-container { background: rgba(255, 255, 255, 0.05); padding: 25px 0; border-bottom: 2px solid #00ffd5; overflow: hidden; width: 100%; z-index: 999; }
+    .slider-track { display: flex; gap: 80px; width: max-content; animation: scrollTrack 40s linear infinite; align-items: center; }
+    .slide { color: #00ffd5; font-weight: bold; font-size: 20px; white-space: nowrap; display: flex; align-items: center; gap: 15px; }
+    .slide i { font-size: 30px; color: #fff; }
+    @keyframes scrollTrack { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* ================= الشريط المتحرك المتطور ================= */
-.slider-container { background: rgba(255, 255, 255, 0.05); padding: 25px 0; border-bottom: 2px solid #00ffd5; overflow: hidden; width: 100%; z-index: 999; }
-.slider-track { display: flex; gap: 80px; width: max-content; animation: scrollTrack 50s linear infinite; align-items: center; }
-.slide { color: #00ffd5; font-weight: bold; font-size: 22px; white-space: nowrap; display: flex; align-items: center; gap: 20px; }
-.slide i { font-size: 35px; color: #fff; } /* أيقونات الشريط مكبرة */
-@keyframes scrollTrack { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-/* ================= التنسيقات العامة ================= */
-.loader-screen{ position:fixed; top:0; left:0; width:100%; height:100vh; background:#070a12; display:flex; justify-content:center; align-items:center; z-index:9999; transition:1s; }
-.loader-content h1{ color:#00ffd5; font-size:40px; margin-bottom:10px; }
-.loader-ring{ width:50px; height:50px; border:4px solid rgba(255,255,255,.1); border-top:4px solid #00ffd5; border-radius:50%; margin:auto; animation:spin 1s linear infinite; }
-@keyframes spin{ to{ transform:rotate(360deg); } }
-nav{ display:flex; justify-content:space-between; align-items:center; padding:18px 30px; background:rgba(255,255,255,.05); backdrop-filter:blur(10px); position:sticky; top:0; z-index:1000; }
-nav h1{ color:#00ffd5; }
-.hero{ height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px; }
-.hero h2{ font-size:52px; color:#00ffd5; margin-bottom:20px; }
-.hero p{ max-width:750px; line-height:2; opacity:.9; font-size:18px; }
-.section{ padding:130px 20px; text-align:center; position:relative; }
-.stats{ display:flex; justify-content:center; gap:40px; flex-wrap:wrap; padding:100px 20px; }
-.stat{ background:rgba(255,255,255,.05); padding:35px; border-radius:20px; min-width:200px; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.08); transition:.4s; }
-.stat h2{ font-size:60px; color:#00ffd5; font-weight:bold; margin:0; }
-
-/* ================= كروت الخدمات (أيقونات مكبرة) ================= */
-.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; padding:40px; }
-.card{ background:rgba(255,255,255,.05); padding:30px; border-radius:20px; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.08); transition:.4s; cursor:pointer; text-align: center; }
-.card:hover{ transform:translateY(-15px); border-color:#00ffd5; box-shadow:0 20px 40px rgba(0,255,213,.2); }
-.card i{ font-size: 70px; color:#00ffd5; margin-bottom: 25px; display: block; }
-.card h3 { font-size: 22px; margin: 0; }
-
-.btn{ padding:14px 28px; border:none; border-radius:30px; background:linear-gradient(45deg,#00ffd5,#00aaff); cursor:pointer; font-weight:bold; color:#000; text-decoration:none; display:inline-block; transition:.4s; }
-.popup{ position:fixed; top:0; left:0; width:100%; height:100vh; background:rgba(0,0,0,.7); display:none; justify-content:center; align-items:center; z-index:9999; padding:20px; }
-.popup-box{ background:#0f1725; padding:35px; border-radius:20px; max-width:550px; width:100%; text-align:right; border:1px solid rgba(0,255,213,.2); }
-.popup-img{ width:100%; height:220px; object-fit:cover; border-radius:12px; margin-bottom:20px; }
-.form{ max-width:500px; margin:auto; display:flex; flex-direction:column; gap:15px; }
-.form input, .form textarea{ padding:14px; border-radius:12px; border:none; background:rgba(255,255,255,.08); color:#fff; }
-.reveal{ opacity:0; transform:translateY(60px); transition:1s; }
-.reveal.active{ opacity:1; transform:translateY(0); }
-.whatsapp{ position:fixed; bottom:20px; left:20px; width:60px; height:60px; background:#25D366; border-radius:50%; display:flex; justify-content:center; align-items:center; font-size:28px; color:#fff; z-index:999; }
-footer{ text-align:center; padding:25px; background:rgba(255,255,255,.04); margin-top:50px; }
+    /* باقي التنسيقات الأصلية */
+    .hero{ height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px; }
+    .hero h2{ font-size:52px; color:#00ffd5; margin-bottom:20px; }
+    .section{ padding:130px 20px; text-align:center; position:relative; }
+    .stats{ display:flex; justify-content:center; gap:40px; flex-wrap:wrap; padding:100px 20px; }
+    .stat{ background:rgba(255,255,255,.05); padding:35px; border-radius:20px; min-width:200px; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.08); transition:.4s; }
+    .stat h2{ font-size:60px; color:#00ffd5; margin:0; }
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:25px; padding:40px; }
+    .card{ background:rgba(255,255,255,.05); padding:25px; border-radius:18px; border:1px solid rgba(255,255,255,.08); transition:.35s; cursor:pointer; }
+    .card i{ font-size:50px; color:#00ffd5; margin-bottom:20px; display:block; }
+    .popup{ position:fixed; top:0; left:0; width:100%; height:100vh; background:rgba(0,0,0,.7); display:none; justify-content:center; align-items:center; z-index:9999; }
+    .popup-box{ background:#0f1725; padding:35px; border-radius:20px; max-width:550px; width:100%; text-align:right; border:1px solid rgba(0,255,213,.2); }
+    .form{ max-width:500px; margin:auto; display:flex; flex-direction:column; gap:15px; }
+    .btn{ padding:14px 28px; border:none; border-radius:30px; background:linear-gradient(45deg,#00ffd5,#00aaff); cursor:pointer; font-weight:bold; color:#000; text-decoration:none; display:inline-block; }
+    .reveal{ opacity:0; transform:translateY(60px); transition:1s; }
+    .reveal.active{ opacity:1; transform:translateY(0); }
+    .whatsapp{ position:fixed; bottom:20px; left:20px; width:60px; height:60px; background:#25D366; border-radius:50%; display:flex; justify-content:center; align-items:center; font-size:28px; color:#fff; z-index:999; }
+    footer{ text-align:center; padding:25px; background:rgba(255,255,255,.04); margin-top:50px; }
 </style>
 </head>
 <body>
@@ -59,17 +51,16 @@ footer{ text-align:center; padding:25px; background:rgba(255,255,255,.04); margi
 <div class="slider-container">
     <div class="slider-track">
         <div class="slide">
-            <i class="fas fa-bullhorn"></i> إعلانات ممولة • <i class="fas fa-palette"></i> تصميم جرافيك • <i class="fab fa-telegram"></i> خدمات تيليجرام • <i class="fas fa-mobile-screen"></i> إدارة سوشيال ميديا • <i class="fas fa-laptop-code"></i> تصميم مواقع • <i class="fas fa-chart-line"></i> نمو حسابات
+            <i class="fas fa-bullhorn"></i> إعلانات ممولة • <i class="fas fa-palette"></i> تصميم جرافيك • <i class="fab fa-telegram"></i> خدمات تيليجرام • <i class="fas fa-mobile-screen"></i> إدارة سوشيال ميديا • <i class="fas fa-laptop-code"></i> تصميم مواقع
         </div>
         <div class="slide">
-            <i class="fas fa-bullhorn"></i> إعلانات ممولة • <i class="fas fa-palette"></i> تصميم جرافيك • <i class="fab fa-telegram"></i> خدمات تيليجرام • <i class="fas fa-mobile-screen"></i> إدارة سوشيال ميديا • <i class="fas fa-laptop-code"></i> تصميم مواقع • <i class="fas fa-chart-line"></i> نمو حسابات
+            <i class="fas fa-bullhorn"></i> إعلانات ممولة • <i class="fas fa-palette"></i> تصميم جرافيك • <i class="fab fa-telegram"></i> خدمات تيليجرام • <i class="fas fa-mobile-screen"></i> إدارة سوشيال ميديا • <i class="fas fa-laptop-code"></i> تصميم مواقع
         </div>
     </div>
 </div>
 
 <header class="hero">
     <h2>شركة التاجر لدعاية والإعلانات احترافية</h2>
-    <p>نقدم حلول إبداعية في التسويق الإلكتروني وإدارة الحملات الإعلانية وصناعة الهوية التجارية بشكل احترافي يساعد الشركات على النمو والانتشار.</p>
     <a href="https://wa.me/201024941083" class="btn">ابدأ مشروعك الآن</a>
 </header>
 
@@ -79,35 +70,33 @@ footer{ text-align:center; padding:25px; background:rgba(255,255,255,.04); margi
     <div class="stat"><h2 class="count" data-target="42896">0</h2><p>حملة إعلانية</p></div>
 </section>
 
-<section id="services" class="section reveal">
+<section class="section reveal">
     <h2>خدماتنا</h2>
     <div class="grid">
-        <div class="card" onclick="openService('الإعلانات الممولة','نقدم حملات إعلانية ممولة بأحترافية...','https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80')"><i class="fas fa-bullhorn"></i><h3>إعلانات ممولة</h3></div>
-        <div class="card" onclick="openService('التصميم الجرافيكي','نصمم لك هوية بصرية فريدة...','https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80')"><i class="fas fa-palette"></i><h3>التصميم الجرافيكي</h3></div>
-        <div class="card" onclick="openService('خدمات تيليجرام','✅ إنشاء بوتات تيليجرام احترافية...','https://images.unsplash.com/photo-1624996379697-f01d168b1a52?auto=format&fit=crop&w=600&q=80')"><i class="fab fa-telegram"></i><h3>خدمات تيليجرام</h3></div>
-        <div class="card" onclick="openService('إدارة السوشيال ميديا','نقوم بإدارة صفحات السوشيال ميديا...','https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=80')"><i class="fas fa-mobile-screen"></i><h3>إدارة السوشيال ميديا</h3></div>
+        <div class="card" onclick="openService('الإعلانات الممولة','نقدم حملات إعلانية ممولة بأحترافية...')"><i class="fas fa-bullhorn"></i><h3>إعلانات ممولة</h3></div>
+        <div class="card" onclick="openService('التصميم الجرافيكي','نصمم هوية بصرية فريدة...')"><i class="fas fa-palette"></i><h3>التصميم الجرافيكي</h3></div>
     </div>
 </section>
 
 <section class="section reveal">
     <h2>خطوات العمل معنا</h2>
     <div class="grid">
-        <div class="card"><h3>1. الطلب</h3><p>أرسل طلبك.</p></div>
-        <div class="card"><h3>2. التنسيق</h3><p>نتواصل معك.</p></div>
-        <div class="card"><h3>3. التنفيذ</h3><p>يبدأ العمل.</p></div>
-        <div class="card"><h3>4. التسليم</h3><p>تستلم نتيجتك.</p></div>
+        <div class="card"><h3>1. طلب الخدمة</h3></div>
+        <div class="card"><h3>2. التنسيق</h3></div>
+        <div class="card"><h3>3. التنفيذ</h3></div>
+        <div class="card"><h3>4. التسليم</h3></div>
     </div>
 </section>
 
-<div id="servicePopup" class="popup"><div class="popup-box"><span class="close-popup" onclick="closeService()">&times;</span><h2 id="popupTitle"></h2><img id="popupImage" class="popup-img" src="" alt="Service"><p id="popupText"></p></div></div>
-
-<footer>© 2026 التاجر للدعاية والإعلان</footer>
+<div id="servicePopup" class="popup"><div class="popup-box"><span class="close-popup" onclick="closeService()">&times;</span><h2 id="popupTitle"></h2><p id="popupText"></p></div></div>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
     particlesJS("particles-js",{particles:{number:{value:50}}});
-    window.addEventListener("scroll",()=>{ document.querySelectorAll(".reveal").forEach(el=>{ if(el.getBoundingClientRect().top < window.innerHeight-100) el.classList.add("active"); }); });
-    function openService(t,d,i){ document.getElementById("popupTitle").innerText=t; document.getElementById("popupText").innerText=d; document.getElementById("popupImage").src=i; document.getElementById("servicePopup").style.display="flex"; }
+    window.addEventListener("load",()=>{ setTimeout(()=>{ document.querySelector(".loader-screen").style.opacity="0"; setTimeout(()=>{ document.querySelector(".loader-screen").style.display="none"; },1000); },2200); });
+    function reveal(){ document.querySelectorAll(".reveal").forEach(el=>{ if(el.getBoundingClientRect().top < window.innerHeight-100) el.classList.add("active"); }); }
+    window.addEventListener("scroll",reveal); reveal();
+    function openService(t,d){ document.getElementById("popupTitle").innerText=t; document.getElementById("popupText").innerText=d; document.getElementById("servicePopup").style.display="flex"; }
     function closeService(){ document.getElementById("servicePopup").style.display="none"; }
 </script>
 </body>
