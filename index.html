@@ -16,7 +16,7 @@
 
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:#070a12;
 color:#fff;
 overflow-x:hidden;
@@ -85,10 +85,13 @@ backdrop-filter:blur(10px);
 position:sticky;
 top:0;
 z-index:1000;
+border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 nav h1{
 color:#00ffd5;
+margin:0;
+font-size:24px;
 }
 
 /* ================= HERO ================= */
@@ -107,6 +110,7 @@ padding:20px;
 font-size:52px;
 color:#00ffd5;
 margin-bottom:20px;
+text-shadow: 0 0 30px rgba(0,255,213,.2);
 }
 
 .hero p{
@@ -123,9 +127,29 @@ margin-top:25px;
 /* ================= SECTION ================= */
 
 .section{
-padding:130px 20px;
+padding:100px 20px;
 text-align:center;
 position:relative;
+}
+
+.section h2{
+font-size:36px;
+margin-bottom:40px;
+color:#fff;
+position:relative;
+display:inline-block;
+}
+
+.section h2::after{
+content:'';
+position:absolute;
+bottom:-10px;
+left:50%;
+transform:translateX(-50%);
+width:60px;
+height:3px;
+background:#00ffd5;
+border-radius:2px;
 }
 
 .section::before{
@@ -134,7 +158,7 @@ position:absolute;
 inset:0;
 background-size:cover;
 background-position:center;
-opacity:.06;
+opacity:.04;
 z-index:-1;
 }
 
@@ -155,32 +179,33 @@ background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f1
 .stats{
 display:flex;
 justify-content:center;
-gap:70px;
+gap:30px;
 flex-wrap:wrap;
-padding:100px 20px;
+padding:80px 20px;
 }
 
 .stat{
-background:rgba(255,255,255,.05);
+background:rgba(255,255,255,.03);
 padding:35px;
 border-radius:20px;
 min-width:220px;
 backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,.08);
-transition:.4s;
+border:1px solid rgba(255,255,255,.05);
+transition:.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .stat:hover{
 transform:translateY(-10px);
 box-shadow:0 15px 40px rgba(0,255,213,.15);
 border-color:#00ffd5;
+background:rgba(255,255,255,.06);
 }
 
 .stat h2{
-font-size:60px;
+font-size:55px;
 color:#00ffd5;
-text-shadow:0 0 20px rgba(0,255,213,.4);
-letter-spacing:2px;
+text-shadow:0 0 20px rgba(0,255,213,.3);
+letter-spacing:1px;
 font-weight:bold;
 margin:0;
 }
@@ -188,42 +213,51 @@ margin:0;
 .stat p{
 font-size:18px;
 margin-top:10px;
+color:rgba(255,255,255,.8);
 }
 
 /* ================= SERVICES ================= */
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
-padding:40px;
+padding:20px 40px;
 }
 
 .card{
-background:rgba(255,255,255,.05);
-padding:25px;
+background:rgba(255,255,255,.04);
+padding:30px 25px;
 border-radius:18px;
 backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,.08);
-transition:.35s;
+border:1px solid rgba(255,255,255,.05);
+transition:.4s cubic-bezier(0.4, 0, 0.2, 1);
 cursor:pointer;
 }
 
 .card:hover{
-transform:translateY(-10px) rotateX(6deg) rotateY(-6deg);
+transform:translateY(-10px) scale(1.02);
 border-color:#00ffd5;
-box-shadow:0 20px 40px rgba(0,255,213,.15);
+box-shadow:0 20px 40px rgba(0,255,213,.12);
+background:rgba(255,255,255,.07);
 }
 
 .card i{
-font-size:34px;
+font-size:36px;
 color:#00ffd5;
-margin-bottom:12px;
+margin-bottom:15px;
 transition:.4s;
 }
 
 .card:hover i{
-transform:rotateY(180deg) scale(1.15);
+transform:scale(1.1);
+color:#fff;
+text-shadow: 0 0 15px #00ffd5;
+}
+
+.card h3{
+margin:10px 0 0 0;
+font-size:20px;
 }
 
 /* ================= POPUP ================= */
@@ -234,47 +268,156 @@ top:0;
 left:0;
 width:100%;
 height:100vh;
-background:rgba(0,0,0,.7);
+background:rgba(2, 4, 10, .85);
 display:none;
 justify-content:center;
 align-items:center;
 z-index:9999;
 padding:20px;
+backdrop-filter:blur(8px);
 }
 
 .popup-box{
 background:#0f1725;
 padding:35px;
-border-radius:20px;
+border-radius:24px;
 max-width:550px;
 width:100%;
 text-align:right;
-border:1px solid rgba(0,255,213,.2);
-box-shadow:0 20px 50px rgba(0,255,213,.15);
+border:1px solid rgba(0,255,213,.15);
+box-shadow:0 25px 60px rgba(0,255,213,.15);
 position:relative;
-overflow:auto;
+overflow-y:auto;
 max-height:85vh;
+animation: popupFade 0.4s ease;
+}
+
+@keyframes popupFade {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .popup-box h2{
 color:#00ffd5;
+margin-top:10px;
 margin-bottom:20px;
 text-align:center;
+font-size:26px;
+}
+
+.popup-img{
+width:100%;
+height:240px;
+object-fit:cover;
+border-radius:16px;
+margin-bottom:20px;
+border:1px solid rgba(255,255,255,.08);
 }
 
 .popup-box p{
 line-height:2;
 font-size:16px;
 white-space:pre-line;
+color:rgba(255,255,255,.9);
+margin-bottom:25px;
 }
 
 .close-popup{
 position:absolute;
-top:12px;
-left:15px;
-font-size:30px;
+top:15px;
+left:20px;
+font-size:32px;
 cursor:pointer;
-color:#fff;
+color:rgba(255,255,255,.6);
+z-index:10;
+transition:.3s;
+}
+
+.close-popup:hover{
+color:#00ffd5;
+}
+
+.popup-btn{
+width:100%;
+text-align:center;
+box-sizing: border-box;
+}
+
+/* ================= TESTIMONIALS ================= */
+
+.testimonials-grid {
+display:grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap:25px;
+padding:20px 40px;
+}
+
+.testi-card {
+background: rgba(255, 255, 255, .03);
+border: 1px solid rgba(255, 255, 255, .05);
+padding: 30px;
+border-radius: 20px;
+text-align: right;
+position: relative;
+backdrop-filter: blur(10px);
+transition: .4s;
+}
+
+.testi-card:hover {
+border-color: #00ffd5;
+transform: translateY(-5px);
+background: rgba(255, 255, 255, .05);
+}
+
+.testi-card i.quote-icon {
+font-size: 30px;
+color: rgba(0, 255, 213, 0.2);
+position: absolute;
+top: 20px;
+left: 20px;
+}
+
+.stars {
+color: #ffc107;
+font-size: 14px;
+margin-bottom: 15px;
+}
+
+.testi-card p {
+font-size: 15px;
+line-height: 1.8;
+color: rgba(255, 255, 255, 0.85);
+margin-bottom: 20px;
+}
+
+.user-info {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.user-info .avatar {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: linear-gradient(45deg, #00ffd5, #00aaff);
+display: flex;
+justify-content: center;
+align-items: center;
+font-weight: bold;
+color: #000;
+font-size: 18px;
+}
+
+.user-details h4 {
+margin: 0;
+font-size: 16px;
+color: #fff;
+}
+
+.user-details span {
+font-size: 13px;
+color: rgba(0, 255, 213, 0.7);
 }
 
 /* ================= FORM ================= */
@@ -291,11 +434,18 @@ gap:15px;
 .form textarea{
 padding:14px;
 border-radius:12px;
-border:none;
+border:1px solid rgba(255,255,255,.05);
 outline:none;
-background:rgba(255,255,255,.08);
+background:rgba(255,255,255,.06);
 color:#fff;
 font-size:15px;
+transition: .3s;
+}
+
+.form input:focus,
+.form textarea:focus{
+border-color:#00ffd5;
+background:rgba(255,255,255,.1);
 }
 
 .form textarea{
@@ -314,11 +464,12 @@ color:#000;
 text-decoration:none;
 display:inline-block;
 transition:.4s;
+box-shadow:0 5px 15px rgba(0,255,213,.2);
 }
 
 .btn:hover{
 transform:scale(1.05);
-box-shadow:0 10px 30px rgba(0,255,213,.3);
+box-shadow:0 10px 30px rgba(0,255,213,.4);
 }
 
 /* ================= SOCIAL ================= */
@@ -328,21 +479,21 @@ display:flex;
 justify-content:center;
 gap:20px;
 flex-wrap:wrap;
-margin-top:40px;
+margin-top:20px;
 }
 
 .social-links a{
-width:70px;
-height:70px;
+width:65px;
+height:65px;
 border-radius:50%;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:30px;
+font-size:28px;
 color:#fff;
 text-decoration:none;
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.06);
 transition:.4s;
 backdrop-filter:blur(10px);
 }
@@ -354,12 +505,12 @@ box-shadow:0 15px 35px rgba(0,255,213,.25);
 color:#00ffd5;
 }
 
-/* ================= REVEAL ================= */
+/* ================= REVEAL HIKES ================= */
 
 .reveal{
 opacity:0;
-transform:translateY(60px);
-transition:1s;
+transform:translateY(50px);
+transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal.active{
@@ -371,8 +522,8 @@ transform:translateY(0);
 
 .whatsapp{
 position:fixed;
-bottom:20px;
-left:20px;
+bottom:25px;
+left:25px;
 width:60px;
 height:60px;
 background:#25D366;
@@ -380,10 +531,16 @@ border-radius:50%;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:28px;
+font-size:30px;
 color:#fff;
 z-index:999;
 text-decoration:none;
+box-shadow:0 10px 25px rgba(37,211,102,.3);
+transition: .3s;
+}
+
+.whatsapp:hover{
+transform: scale(1.1);
 }
 
 /* ================= FOOTER ================= */
@@ -391,24 +548,19 @@ text-decoration:none;
 footer{
 text-align:center;
 padding:25px;
-background:rgba(255,255,255,.04);
+background:rgba(255,255,255,.02);
 margin-top:50px;
+border-top:1px solid rgba(255,255,255,.05);
+font-size:14px;
+color:rgba(255,255,255,.6);
 }
 
 @media(max-width:768px){
-
-.hero h2{
-font-size:38px;
-}
-
-.stats{
-gap:25px;
-}
-
-.stat{
-width:100%;
-}
-
+.hero h2{ font-size:36px; }
+.hero p{ font-size:16px; }
+.stats{ gap:20px; }
+.stat{ width:100%; }
+.grid, .testimonials-grid { padding:20px; }
 }
 
 </style>
@@ -445,14 +597,14 @@ width:100%;
 
 <header class="hero">
 
-<h2>شركة التاجر لدعاية والإعلانات احترافية</h2>
+<h2>شركة التاجر للدعاية والإعلان</h2>
 
 <p>
-نقدم حلول إبداعية في التسويق الإلكتروني وإدارة الحملات الإعلانية
-وصناعة الهوية التجارية بشكل احترافي يساعد الشركات على النمو والانتشار.
+نقدم حلولاً إبداعية في التسويق الإلكتروني وإدارة الحملات الإعمالانية
+وصناعة الهوية التجارية بشكل احترافي يساعد الشركات على النمو والانتشار الممتد.
 </p>
 
-<a href="https://wa.me/201024941083" class="btn">
+<a href="#order" class="btn">
 ابدأ مشروعك الآن
 </a>
 
@@ -463,18 +615,23 @@ width:100%;
 <section class="stats reveal">
 
 <div class="stat">
+<h2 class="count" data-target="10">0</h2>
+<p>سنوات خبرة</p>
+</div>
+
+<div class="stat">
 <h2 class="count" data-target="16325">0</h2>
-<p>عميل</p>
+<p>عميل ثق بنا</p>
 </div>
 
 <div class="stat">
 <h2 class="count" data-target="42896">0</h2>
-<p>حملة إعلانية</p>
+<p>حملة إعلانية ناجحة</p>
 </div>
 
 <div class="stat">
 <h2 class="count" data-target="113990">0</h2>
-<p>زيارة</p>
+<p>زيارة للموقع</p>
 </div>
 
 </section>
@@ -483,7 +640,7 @@ width:100%;
 
 <section id="services" class="section reveal">
 
-<h2>خدماتنا</h2>
+<h2>خدماتنا الاحترافية</h2>
 
 <div class="grid">
 
@@ -491,22 +648,38 @@ width:100%;
 
 <div class="card" onclick="openService(
 'الإعلانات الممولة',
-'نقدم حملات إعلانية ممولة بأحترافية على جميع منصات السوشيال ميديا مثل تيليجرام وفيسبوك وإنستجرام وتيك توك وواتساب وسناب شات وجوجل ويوتيوب مع استهداف دقيق للعملاء وتحليل النتائج لتحقيق أفضل وصول ومبيعات.'
+'نقدم حملات إعلانية ممولة بأحترافية على جميع منصات السوشيال ميديا مثل تيليجرام وفيسبوك وإنستجرام وتيك توك وواتساب وسناب شات وجوجل ويوتيوب مع استهداف دقيق للعملاء وتحليل النتائج لتحقيق أفضل وصول ومبيعات.',
+'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-bullhorn"></i>
 <h3>إعلانات ممولة</h3>
+</div>
+
+<!-- GRAPHIC DESIGN -->
+
+<div class="card" onclick="openService(
+'التصميم الجرافيكي',
+'نصمم لك هوية بصرية فريدة تعبر عن قوة نشاطك التجاري:\n\n✅ تصميم الشعارات (Logos) الاحترافية\n✅ بناء الهوية البصرية المتكاملة والكاملة\n✅ تصميم بوستات السوشيال ميديا الإبداعية\n✅ تصميم بنرات إعلانية لافتة للانتباه\n✅ تصميم كروت شخصية (Business Cards) راقية',
+'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80'
+)">
+<i class="fas fa-palette"></i>
+<h3>التصميم الجرافيكي</h3>
 </div>
 
 <!-- SOCIAL MEDIA -->
 
 <div class="card" onclick="openService(
 'إدارة السوشيال ميديا',
-'نقوم بإدارة صفحات السوشيال ميديا بشكل احترافي مع زيادة التفاعل والمتابعين وإنشاء محتوى جذاب يساعد على نمو نشاطك التجاري.'
+'نقوم بإدارة صفحات السوشيال ميديا بشكل احترافي مع زيادة التفاعل والمتابعين وإنشاء محتوى جذاب يساعد على نمو نشاطك التجاري.',
+'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-mobile-screen"></i>
 <h3>إدارة السوشيال ميديا</h3>
 </div>
-<div class="card" onclick="openService('خدمات تيليجرام 🚀','✅ إنشاء بوتات تيليجرام احترافية\n✅ تصميم بوتات طلبات ورد تلقائي\n✅ بوتات حجز واستقبال العملاء\n✅ إدارة قنوات وجروبات تيليجرام\n✅ زيادة أعضاء القنوات والجروبات\n✅ نشر تلقائي داخل القنوات\n✅ ربط البوتات بالمواقع والمتاجر\n✅ بوتات خدمات العملاء والدعم الفني\n✅ حماية وإدارة الجروبات\n✅ إعداد قنوات احترافية للنشاط التجاري\n✅ حملات إعلانية لقنوات تيليجرام\n✅ تصميم واجهات وأزرار للبوتات\n✅ خدمات تطوير وتعديل البوتات\n✅ ربط الدفع والطلبات داخل البوت\n✅ زيادة التفاعل والمشاهدات للقنوات')">
+
+<!-- TELEGRAM MAIN -->
+
+<div class="card" onclick="openService('خدمات تيليجرام 🚀','✅ إنشاء بوتات تيليجرام احترافية\n✅ تصميم بوتات طلبات ورد تلقائي\n✅ بوتات حجز واستقبال العملاء\n✅ إدارة قنوات وجروبات تيليجرام\n✅ زيادة أعضاء القنوات والجروبات\n✅ نشر تلقائي داخل القنوات\n✅ ربط البوتات بالمواقع والمتاجر\n✅ بوتات خدمات العملاء والدعم الفني\n✅ حماية وإدارة الجروبات\n✅ إعداد قنوات احترافية للنشاط التجاري\n✅ حملات إعلانية لقنوات تيليجرام\n✅ تصميم واجهات وأزرار للبوتات\n✅ خدمات تطوير وتعديل البوتات\n✅ ربط الدفع والطلبات داخل البوت\n✅ زيادة التفاعل والمشاهدات للقنوات', 'https://images.unsplash.com/photo-1624996379697-f01d168b1a52?auto=format&fit=crop&w=600&q=80')">
 <i class="fab fa-telegram"></i>
 <h3>خدمات تيليجرام</h3>
 </div>
@@ -515,7 +688,8 @@ width:100%;
 
 <div class="card" onclick="openService(
 'إدارة الصفحات',
-'نوفر إدارة كاملة للصفحات والمتاجر الإلكترونية مع متابعة الرسائل والتعليقات وتحسين ظهور النشاط التجاري.'
+'نوفر إدارة كاملة للصفحات والمتاجر الإلكترونية مع متابعة الرسائل والتعليقات وتحسين ظهور النشاط التجاري.',
+'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-gears"></i>
 <h3>إدارة الصفحات</h3>
@@ -525,7 +699,8 @@ width:100%;
 
 <div class="card" onclick="openService(
 'نمو الحسابات',
-'نساعدك على زيادة نمو حساباتك وتحسين الوصول والتفاعل بطريقة احترافية وآمنة.'
+'نساعدك على زيادة نمو حساباتك وتحسين الوصول والتفاعل بطريقة احترافية وآمنة.',
+'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-chart-line"></i>
 <h3>نمو الحسابات</h3>
@@ -535,10 +710,33 @@ width:100%;
 
 <div class="card" onclick="openService(
 'تصميم وإنشاء المواقع',
-'نصمم مواقع إلكترونية احترافية سريعة ومتجاوبة مع جميع الأجهزة تساعدك على عرض خدماتك بشكل مميز.'
+'نصمم مواقع إلكترونية احترافية سريعة ومتجاوبة مع جميع الأجهزة تساعدك على عرض خدماتك بشكل مميز.',
+'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-laptop-code"></i>
 <h3>تصميم وإنشاء المواقع</h3>
+</div>
+
+<!-- FOLLOWERS SYSTEM -->
+
+<div class="card" onclick="openService(
+'تزويد المتابعين والأعضاء',
+'تزويد متابعين وأعضاء ومشتركين لجميع منصات السوشيال ميديا بشكل آمن وسريع:\n\nفيسبوك - إنستجرام - تيليجرام - تيك توك - واتساب - تويتر - يوتيوب - ثريدز - لينكد إن - بنترست - كواي.',
+'https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop&w=600&q=80'
+)">
+<i class="fas fa-users-gear"></i>
+<h3>تزويد المتابعين</h3>
+</div>
+
+<!-- MISC SERVICES -->
+
+<div class="card" onclick="openService(
+'خدمات متنوعة',
+'✅ إنشاء تطبيق ( ابليكشن ) 🎰\n✅ بيع قنوات تلجرام وصفحات فيس وانستا وتيك توك وواتس اب جاهزة 💯\n✅ شحن العاب 🎮\n✅ تصميم ديزاين ولوجو وايموشن جيرافيك وهوية بصرية كاملة 🖼️\n✅ إعلانات في جرائد وصحف معروفة 📰\n✅ تعليقات المشاهير من حساباتهم الرسمية 🕺\n✅ اشتراكات الذكاء الاصطناعي ⌨️\n✅ اشتراكات شاهد ونتفلكس وواتش ايت 🖥️\n✅ اشتراكات كنفا 🎨\n✅ سحب بيانات كاملة لأي شخص من خلال رقم هاتفه ( لأستخدامات قانونية فقط )\n✅ حظر وإغلاق صفحة او حساب أو قناة على [ تليجرام - فيس بوك - انستجرام - تيك توك - واتس اب - يوت يوب - تويتر ] 📵\n✅ اشتراكات جاكو - شوبي - كيك IPTV\n✅ زيارات للموقع\n✅ مشاهدات للمقالات\n✅ تقييم خرائط جوجل',
+'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80'
+)">
+<i class="fas fa-cubes"></i>
+<h3>خدمات متنوعة</h3>
 </div>
 
 </div>
@@ -555,11 +753,66 @@ width:100%;
 
 <h2 id="popupTitle"></h2>
 
+<img id="popupImage" class="popup-img" src="" alt="Service Image">
+
 <p id="popupText"></p>
 
+<button class="btn popup-btn" onclick="orderCurrentService()">اطلب هذه الخدمة الآن</button>
+
 </div>
 
 </div>
+
+<!-- TESTIMONIALS SECTION (NEW) -->
+
+<section id="testimonials" class="section reveal">
+
+<h2>آراء عملائنا</h2>
+
+<div class="testimonials-grid">
+
+<div class="testi-card">
+<i class="fas fa-quote-right quote-icon"></i>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p>تعامل راقي جدًا وسرعة في تنفيذ تمويل الإعلانات. المبيعات عندي تضاعفت في أول أسبوع فقط من الحملة الممولة، أنصح بالتعامل معهم بشدة.</p>
+<div class="user-info">
+<div class="avatar">أ</div>
+<div class="user-details">
+<h4>أحمد محمود</h4>
+<span>صاحب متجر إلكتروني</span>
+</div>
+</div>
+</div>
+
+<div class="testi-card">
+<i class="fas fa-quote-right quote-icon"></i>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p>بوت التيليجرام الذي صمموه لشركتنا وفر علينا وقت مذهل في الرد التلقائي وحجز طلبات العملاء بكل سهولة واحترافية.</p>
+<div class="user-info">
+<div class="avatar">م</div>
+<div class="user-details">
+<h4>مؤسسة الإبداع</h4>
+<span>قناة تجارية</span>
+</div>
+</div>
+</div>
+
+<div class="testi-card">
+<i class="fas fa-quote-right quote-icon"></i>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p>طلبت تصميم هوية بصرية كاملة لشركتي، والنتيجة كانت مبهرة وتفوق التوقعات! ذوق عالي والتزام تام بمواعيد التسليم.</p>
+<div class="user-info">
+<div class="avatar">س</div>
+<div class="user-details">
+<h4>سارة علي</h4>
+<span>رائدة أعمال</span>
+</div>
+</div>
+</div>
+
+</div>
+
+</section>
 
 <!-- ABOUT -->
 
@@ -567,11 +820,11 @@ width:100%;
 
 <h2>من نحن</h2>
 
-<p style="max-width:800px;margin:auto;line-height:2;font-size:18px;">
+<p style="max-width:800px;margin:auto;line-height:2;font-size:18px; color:rgba(255,255,255,.85);">
 
 شركة التاجر للدعاية والإعلان متخصصة في تنفيذ الحملات الإعلانية
-وصناعة الهوية البصرية وإدارة السوشيال ميديا بشكل احترافي يساعد
-الشركات والمتاجر على النمو وتحقيق أفضل النتائج.
+وصناعة الهوية البصرية وإدارة السوشيال ميديا بشكل احترافي وبخبرة تمتد لأكثر من 10 سنوات لنساعد
+الشركات والمتاجر على النمو السريع وتحقيق أفضل العوائد الربحية.
 
 </p>
 
@@ -591,10 +844,10 @@ width:100%;
 
 <input type="text" id="phone" placeholder="رقم الهاتف" required>
 
-<textarea id="details" placeholder="تفاصيل إضافية"></textarea>
+<textarea id="details" placeholder="تفاصيل إضافية أو ملاحظات خاصة"></textarea>
 
 <button class="btn" type="submit">
-إرسال الطلب
+إرسال الطلب عبر واتساب
 </button>
 
 </form>
@@ -637,10 +890,10 @@ width:100%;
 
 <section class="section reveal">
 
-<h2>تواصل معنا</h2>
+<h2>تواصل معنا مباشر</h2>
 
 <a class="btn" href="https://wa.me/201024941083">
-واتساب مباشر
+محادثة واتساب فورية
 </a>
 
 </section>
@@ -654,7 +907,7 @@ width:100%;
 <!-- FOOTER -->
 
 <footer>
-© 2026 التاجر للدعاية والإعلان
+© 2026 التاجر للدعاية والإعلان. جميع الحقوق محفوظة.
 </footer>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -755,61 +1008,4 @@ window.addEventListener("scroll",counter);
 
 counter();
 
-function openService(title,text){
-
-document.getElementById("popupTitle").innerText=title;
-
-document.getElementById("popupText").innerText=text;
-
-document.getElementById("servicePopup").style.display="flex";
-
-}
-
-function closeService(){
-
-document.getElementById("servicePopup").style.display="none";
-
-}
-
-window.addEventListener("click",(e)=>{
-
-let popup=document.getElementById("servicePopup");
-
-if(e.target===popup){
-
-popup.style.display="none";
-
-}
-
-});
-
-function sendToWhatsApp(e){
-
-e.preventDefault();
-
-let name=document.getElementById("name").value;
-
-let service=document.getElementById("service").value;
-
-let phone=document.getElementById("phone").value;
-
-let details=document.getElementById("details").value;
-
-let msg=`طلب خدمة:
-الاسم: ${name}
-الخدمة: ${service}
-رقم الهاتف: ${phone}
-تفاصيل: ${details}`;
-
-window.open(
-"https://wa.me/201024941083?text="+encodeURIComponent(msg),
-"_blank"
-);
-
-}
-
-</script>
-
-</body>
-
-</html>
+l
