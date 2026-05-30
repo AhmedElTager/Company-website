@@ -91,7 +91,7 @@ nav h1{
 color:#00ffd5;
 }
 
-/* ================= PARTNERS SLIDER (TOP POSITION) ================= */
+/* ================= PARTNERS SLIDER (FIXED FOR RTL) ================= */
 
 .slider-container {
 background: rgba(255, 255, 255, 0.02);
@@ -107,7 +107,7 @@ z-index: 10;
 display: flex;
 gap: 50px;
 width: max-content;
-animation: scrollTrack 28s linear infinite;
+animation: scrollTrack 25s linear infinite;
 }
 
 .slide {
@@ -128,9 +128,10 @@ font-size: 20px;
 color: #00ffd5;
 }
 
+/* التعديل هنا لإصلاح الاختفاء في الشاشات الصغيرة */
 @keyframes scrollTrack {
 0% { transform: translateX(0); }
-100% { transform: translateX(50%); }
+100% { transform: translateX(-50%); }
 }
 
 /* ================= HERO ================= */
@@ -624,7 +625,7 @@ grid-template-columns: 1fr;
 
 <header class="hero">
 
-<h2>شركة التاجر لدعاية والإعلانات احترافية</h2>
+<h2>شركة التاجر لدعايات والإعلانات احترافية</h2>
 
 <p>
 نقدم حلول إبداعية في التسويق الإلكتروني وإدارة الحملات الإعلانية
@@ -940,7 +941,4 @@ window.addEventListener("load",()=>{
 
 setTimeout(()=>{
 
-document.querySelector(".loader-screen").style.opacity="0";
-
-setTimeout(()=>{
-document.querySelector(".l
+document.querySelector(".loader-screen").style.o
