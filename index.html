@@ -270,80 +270,60 @@ text-align:center;
 box-sizing: border-box;
 }
 
-/* ================= TESTIMONIALS ================= */
+/* ================= PROCESS SECTION (NEW) ================= */
 
-.testimonials-grid {
-display:grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap:25px;
-padding:20px 40px;
+.process-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 25px;
+padding: 20px 40px;
 }
 
-.testi-card {
+.process-card {
 background: rgba(255, 255, 255, .03);
 border: 1px solid rgba(255, 255, 255, .05);
-padding: 30px;
+padding: 30px 20px;
 border-radius: 20px;
-text-align: right;
-position: relative;
 backdrop-filter: blur(10px);
 transition: .3s;
+position: relative;
 }
 
-.testi-card:hover {
+.process-card:hover {
 border-color: #00ffd5;
 transform: translateY(-5px);
 }
 
-.testi-card i.quote-icon {
-font-size: 30px;
-color: rgba(0, 255, 213, 0.1);
+.process-step {
 position: absolute;
-top: 20px;
-left: 20px;
+top: 15px;
+right: 20px;
+font-size: 14px;
+font-weight: bold;
+color: #00ffd5;
+background: rgba(0, 255, 213, 0.1);
+padding: 4px 10px;
+border-radius: 10px;
 }
 
-.stars {
-color: #ffc107;
-font-size: 14px;
+.process-card i {
+font-size: 32px;
+color: #00ffd5;
+margin-top: 15px;
 margin-bottom: 15px;
 }
 
-.testi-card p {
-font-size: 15px;
-line-height: 1.8;
-color: rgba(255, 255, 255, 0.85);
-margin-bottom: 20px;
-}
-
-.user-info {
-display: flex;
-align-items: center;
-gap: 15px;
-}
-
-.user-info .avatar {
-width: 50px;
-height: 50px;
-border-radius: 50%;
-background: linear-gradient(45deg, #00ffd5, #00aaff);
-display: flex;
-justify-content: center;
-align-items: center;
-font-weight: bold;
-color: #000;
+.process-card h3 {
+margin: 10px 0;
 font-size: 18px;
-}
-
-.user-details h4 {
-margin: 0;
-font-size: 16px;
 color: #fff;
 }
 
-.user-details span {
-font-size: 13px;
-color: rgba(0, 255, 213, 0.7);
+.process-card p {
+font-size: 14px;
+line-height: 1.6;
+color: rgba(255, 255, 255, 0.7);
+margin: 0;
 }
 
 /* ================= FORM ================= */
@@ -466,7 +446,7 @@ color:rgba(255,255,255,.6);
 .hero p{ font-size:16px; }
 .stats{ gap:15px; }
 .stat{ width:100%; min-width: 100%; box-sizing: border-box;}
-.grid, .testimonials-grid { padding:15px; grid-template-columns: 1fr; }
+.grid, .process-grid { padding:15px; grid-template-columns: 1fr; }
 }
 
 </style>
@@ -501,22 +481,22 @@ color:rgba(255,255,255,.6);
 <section class="stats">
 
 <div class="stat">
-<h2 class="count" data-target="10">10+</h2>
+<h2>10+</h2>
 <p>سنوات خبرة</p>
 </div>
 
 <div class="stat">
-<h2 class="count" data-target="16325">16,325+</h2>
+<h2>16,325+</h2>
 <p>عميل يثق بنا</p>
 </div>
 
 <div class="stat">
-<h2 class="count" data-target="42896">42,896+</h2>
+<h2>42,896+</h2>
 <p>حملة إعلانية ناجحة</p>
 </div>
 
 <div class="stat">
-<h2 class="count" data-target="113990">113,990+</h2>
+<h2>113,990+</h2>
 <p>زيارة للموقع</p>
 </div>
 
@@ -627,49 +607,38 @@ color:rgba(255,255,255,.6);
 
 </div>
 
-<section id="testimonials" class="section">
+<section id="process" class="section">
 
-<h2>آراء عملائنا</h2>
+<h2>خطوات العمل معنا</h2>
 
-<div class="testimonials-grid">
+<div class="process-grid">
 
-<div class="testi-card">
-<i class="fas fa-quote-right quote-icon"></i>
-<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-<p>تعامل راقي جدًا وسرعة في تنفيذ تمويل الإعلانات. المبيعات عندي تضاعفت في أول أسبوع فقط من الحملة الممولة، أنصح بالتعامل معهم بشدة.</p>
-<div class="user-info">
-<div class="avatar">أ</div>
-<div class="user-details">
-<h4>أحمد محمود</h4>
-<span>صاحب متجر إلكتروني</span>
-</div>
-</div>
+<div class="process-card">
+<span class="process-step">01</span>
+<i class="fas fa-file-signature"></i>
+<h3>1. تقديم الطلب</h3>
+<p>قم بملء نموذج الطلب بالأسفل ببياناتك والخدمة التي تحتاجها بدقة.</p>
 </div>
 
-<div class="testi-card">
-<i class="fas fa-quote-right quote-icon"></i>
-<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-<p>بوت التيليجرام الذي صمموه لشركتنا وفر علينا وقت مذهل في الرد التلقائي وحجز طلبات العملاء بكل سهولة واحترافية.</p>
-<div class="user-info">
-<div class="avatar">م</div>
-<div class="user-details">
-<h4>مؤسسة الإبداع</h4>
-<span>قناة تجارية</span>
-</div>
-</div>
+<div class="process-card">
+<span class="process-step">02</span>
+<i class="fas fa-comments"></i>
+<h3>2. تواصل وتنسيق</h3>
+<p>يتواصل معك فريق الدعم فوراً عبر واتساب لمناقشة التفاصيل والاتفاق.</p>
 </div>
 
-<div class="testi-card">
-<i class="fas fa-quote-right quote-icon"></i>
-<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-<p>طلبت تصميم هوية بصرية كاملة لشركتي، والنتيجة كانت مبهرة وتفوق التوقعات! ذوق عالي والتزام تام بمواعيد التسليم.</p>
-<div class="user-info">
-<div class="avatar">س</div>
-<div class="user-details">
-<h4>سارة علي</h4>
-<span>رائدة أعمال</span>
+<div class="process-card">
+<span class="process-step">03</span>
+<i class="fas fa-laptop-file"></i>
+<h3>3. التنفيذ الاحترافي</h3>
+<p>يبدأ خبراؤنا بالعمل على مشروعك بأعلى معايير الدقة والسرعة.</p>
 </div>
-</div>
+
+<div class="process-card">
+<span class="process-step">04</span>
+<i class="fas fa-circle-check"></i>
+<h3>4. التسليم والدعم</h3>
+<p>نسلمك العمل كاملاً مع تقديم دعم ومتابعة مستمرة لضمان نجاحك.</p>
 </div>
 
 </div>
