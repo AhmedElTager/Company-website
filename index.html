@@ -16,11 +16,52 @@
 
 body{
 margin:0;
-font-family:Arial, sans-serif;
+font-family:Arial;
 background:#070a12;
 color:#fff;
 overflow-x:hidden;
 scroll-behavior:smooth;
+}
+
+/* ================= TICKER (الشريط المتحرك الجديد) ================= */
+
+.top-ticker {
+background: linear-gradient(45deg, #00aaff, #00ffd5);
+color: #000;
+overflow: hidden;
+position: relative;
+width: 100%;
+height: 40px;
+display: flex;
+align-items: center;
+z-index: 1001; /* أعلى من القائمة */
+font-weight: bold;
+font-size: 14px;
+box-shadow: 0 2px 10px rgba(0, 255, 213, 0.2);
+}
+
+.ticker-wrap {
+display: flex;
+width: 100%;
+padding-left: 100%;
+box-sizing: content-box;
+}
+
+.ticker-item {
+display: inline-block;
+white-space: nowrap;
+padding: 0 2rem;
+animation: ticker 35s linear infinite;
+}
+
+@keyframes ticker {
+0% {
+transform: translate3d(0, 0, 0);
+visibility: visible;
+}
+100% {
+transform: translate3d(100%, 0, 0); /* متوافق مع اتجاه RTL من اليمين لليسار */
+}
 }
 
 /* ================= PARTICLES ================= */
@@ -31,9 +72,8 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-z-index:1;
+z-index:-3;
 background:#070a12;
-pointer-events: none;
 }
 
 /* ================= LOADER ================= */
@@ -48,18 +88,14 @@ background:#070a12;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:99999;
-transition: opacity 0.5s ease;
-}
-
-.loader-content {
-text-align: center;
+z-index:9999;
+transition:1s;
 }
 
 .loader-content h1{
 color:#00ffd5;
 font-size:40px;
-margin-bottom:20px;
+margin-bottom:10px;
 }
 
 .loader-ring{
@@ -78,12 +114,6 @@ transform:rotate(360deg);
 }
 }
 
-/* ================= MAIN CONTENT WRAPPER ================= */
-.main-wrapper {
-position: relative;
-z-index: 10;
-}
-
 /* ================= NAV ================= */
 
 nav{
@@ -100,21 +130,18 @@ z-index:1000;
 
 nav h1{
 color:#00ffd5;
-margin:0;
-font-size:24px;
 }
 
 /* ================= HERO ================= */
 
 .hero{
-min-height:80vh;
+height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:40px 20px;
-box-sizing: border-box;
+padding:20px;
 }
 
 .hero h2{
@@ -137,7 +164,7 @@ margin-top:25px;
 /* ================= SECTION ================= */
 
 .section{
-padding:100px 20px;
+padding:130px 20px;
 text-align:center;
 position:relative;
 }
@@ -156,10 +183,6 @@ z-index:-1;
 background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');
 }
 
-#why-us::before{
-background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80');
-}
-
 #about::before{
 background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
 }
@@ -175,7 +198,7 @@ display:flex;
 justify-content:center;
 gap:40px;
 flex-wrap:wrap;
-padding:60px 20px;
+padding:100px 20px;
 }
 
 .stat{
@@ -208,11 +231,11 @@ font-size:18px;
 margin-top:10px;
 }
 
-/* ================= SERVICES & WHY US GRID ================= */
+/* ================= SERVICES ================= */
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
 gap:25px;
 padding:40px;
 }
@@ -244,16 +267,6 @@ transition:.4s;
 transform:rotateY(180deg) scale(1.15);
 }
 
-.feature-card {
-cursor: default;
-}
-.feature-card p {
-font-size: 14px;
-opacity: 0.8;
-line-height: 1.6;
-margin-top: 10px;
-}
-
 /* ================= POPUP ================= */
 
 .popup{
@@ -266,7 +279,7 @@ background:rgba(0,0,0,.7);
 display:none;
 justify-content:center;
 align-items:center;
-z-index:999999;
+z-index:9999;
 padding:20px;
 }
 
@@ -392,12 +405,12 @@ box-shadow:0 15px 35px rgba(0,255,213,.25);
 color:#00ffd5;
 }
 
-/* ================= REVEAL (SCROLL EFFECT) ================= */
+/* ================= REVEAL ================= */
 
 .reveal{
 opacity:0;
-transform:translateY(40px);
-transition:0.8s ease;
+transform:translateY(60px);
+transition:1s;
 }
 
 .reveal.active{
@@ -420,7 +433,7 @@ justify-content:center;
 align-items:center;
 font-size:28px;
 color:#fff;
-z-index:9999;
+z-index:999;
 text-decoration:none;
 }
 
@@ -433,42 +446,10 @@ background:rgba(255,255,255,.04);
 margin-top:50px;
 }
 
-/* ================= TICKER MARQUEE ================= */
-.ticker-wrap {
-  width: 100%;
-  background: linear-gradient(90deg, #00ffd5, #00aaff);
-  color: #000;
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  padding: 12px 0;
-  font-weight: bold;
-  font-size: 15px;
-  direction: ltr;
-  position: relative;
-  z-index: 2000;
-}
-
-.ticker {
-  display: inline-block;
-  padding-left: 100%;
-  animation: marquee 30s linear infinite;
-}
-
-.ticker__item {
-  display: inline-block;
-  padding: 0 1.8rem;
-}
-
-@keyframes marquee {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-100%, 0, 0); }
-}
-
 @media(max-width:768px){
 
 .hero h2{
-font-size:34px;
+font-size:38px;
 }
 
 .stats{
@@ -479,10 +460,6 @@ gap:25px;
 width:100%;
 }
 
-.grid {
-padding: 15px;
-}
-
 }
 
 </style>
@@ -491,103 +468,77 @@ padding: 15px;
 
 <body>
 
-<!-- LOADER SCREEN -->
-<div class="loader-screen" id="loaderScreen">
-<div class="loader-content">
-<h1>التاجر للدعاية</h1>
-<div class="loader-ring"></div>
-</div>
-</div>
-
-<!-- BACKGROUND PARTICLES -->
-<div id="particles-js"></div>
-
-<!-- MAIN SITE WRAPPER -->
-<div class="main-wrapper">
-
-<!-- TICKER MARQUEE -->
-<div class="ticker-wrap">
-  <div class="ticker">
-    <div class="ticker__item">براندات أحذية وشنط •</div>
-    <div class="ticker__item">براندات اكسسوارات وميكب •</div>
-    <div class="ticker__item">براندات ادوات منزلية ومفروشات •</div>
-    <div class="ticker__item">براندات ملابس •</div>
-    <div class="ticker__item">مكاتب ادوات مدرسية ولعب اطفال •</div>
-    <div class="ticker__item">مصانع ومكاتب الاثاث والديكور •</div>
-    <div class="ticker__item">المصانع والورش •</div>
-    <div class="ticker__item">معارض السيارات •</div>
-    <div class="ticker__item">شركات الأمن والنظافة •</div>
-    <div class="ticker__item">العيادات الطبية •</div>
-    <div class="ticker__item">الصيدليات •</div>
-    <div class="ticker__item">المزارع •</div>
-    <div class="ticker__item">مراكز التجميل و الكوافير •</div>
-    <div class="ticker__item">شركات الشحن •</div>
-    <div class="ticker__item">الجيمات والأندية الرياضية •</div>
-    <div class="ticker__item">شركات العقارات والسياحة •</div>
-    <div class="ticker__item">تجار السلع الغذائية •</div>
-    <div class="ticker__item">محلات الموبايلات •</div>
-    <!-- التكرار الانسيابي للشريط -->
-    <div class="ticker__item">براندات أحذية وشنط •</div>
-    <div class="ticker__item">براندات اكسسوارات وميكب •</div>
-    <div class="ticker__item">براندات ادوات منزلية ومفروشات •</div>
-    <div class="ticker__item">براندات ملابس •</div>
-    <div class="ticker__item">مكاتب ادوات مدرسية ولعب اطفال •</div>
-    <div class="ticker__item">مصانع ومكاتب الاثاث والديكور •</div>
-    <div class="ticker__item">المصانع والورش •</div>
-    <div class="ticker__item">معارض السيارات •</div>
-    <div class="ticker__item">شركات الأمن والنظافة •</div>
-    <div class="ticker__item">العيادات الطبية •</div>
-    <div class="ticker__item">الصيدليات •</div>
-    <div class="ticker__item">المزارع •</div>
-    <div class="ticker__item">مراكز التجميل و الكوافير •</div>
-    <div class="ticker__item">شركات الشحن •</div>
-    <div class="ticker__item">الجيمات والأندية الرياضية •</div>
-    <div class="ticker__item">شركات العقارات والسياحة •</div>
-    <div class="ticker__item">تجار السلع الغذائية •</div>
-    <div class="ticker__item">محلات الموبايلات</div>
+<div class="top-ticker">
+  <div class="ticker-wrap">
+    <div class="ticker-item">
+      &nbsp;&nbsp;&nbsp;&nbsp; ★ براندات أحذية وشنط &nbsp;&nbsp;&nbsp;&nbsp; ★ براندات اكسسوارات وميكب &nbsp;&nbsp;&nbsp;&nbsp; ★ براندات ادوات منزلية ومفروشات &nbsp;&nbsp;&nbsp;&nbsp; ★ براندات ملابس &nbsp;&nbsp;&nbsp;&nbsp; ★ مكاتب ادوات مدرسية ولعب اطفال &nbsp;&nbsp;&nbsp;&nbsp; ★ مصانع ومكاتب الاثاث والديكور &nbsp;&nbsp;&nbsp;&nbsp; ★ المصانع والورش &nbsp;&nbsp;&nbsp;&nbsp; ★ معارض السيارات &nbsp;&nbsp;&nbsp;&nbsp; ★ شركات الأمن والنظافة &nbsp;&nbsp;&nbsp;&nbsp; ★ العيادات الطبية &nbsp;&nbsp;&nbsp;&nbsp; ★ الصيدليات &nbsp;&nbsp;&nbsp;&nbsp; ★ المزارع &nbsp;&nbsp;&nbsp;&nbsp; ★ مراكز التجميل و الكوافير &nbsp;&nbsp;&nbsp;&nbsp; ★ شركات الشحن &nbsp;&nbsp;&nbsp;&nbsp; ★ الجيمات والأندية الرياضية &nbsp;&nbsp;&nbsp;&nbsp; ★ شركات العقارات والسياحة &nbsp;&nbsp;&nbsp;&nbsp; ★ تجار السلع الغذائية &nbsp;&nbsp;&nbsp;&nbsp; ★ محلات الموبايلات
+    </div>
   </div>
 </div>
 
-<!-- NAV -->
-<nav>
+<div id="particles-js"></div>
+
+<div class="loader-screen">
+
+<div class="loader-content">
+
 <h1>التاجر للدعاية</h1>
+
+<div class="loader-ring"></div>
+
+</div>
+
+</div>
+
+<nav>
+
+<h1>التاجر للدعاية</h1>
+
 </nav>
 
-<!-- HERO -->
 <header class="hero">
-<h2>شركة التاجر للدعاية والإعلان الاحترافية</h2>
+
+<h2>شركة التاجر لدعاية والإعلانات احترافية</h2>
+
 <p>
-نقدم حلولاً إبداعية في التسويق الإلكتروني وإدارة الحملات الإعلانية
+نقدم حلول إبداعية في التسويق الإلكتروني وإدارة الحملات الإعلانية
 وصناعة الهوية التجارية بشكل احترافي يساعد الشركات على النمو والانتشار.
 </p>
+
 <a href="https://wa.me/201024941083" class="btn">
 ابدأ مشروعك الآن
 </a>
+
 </header>
 
-<!-- STATS -->
 <section class="stats reveal">
+
 <div class="stat">
 <h2 class="count" data-target="10">0</h2>
 <p>سنوات خبرة</p>
 </div>
+
 <div class="stat">
 <h2 class="count" data-target="16325">0</h2>
 <p>عميل</p>
 </div>
+
 <div class="stat">
 <h2 class="count" data-target="42896">0</h2>
 <p>حملة إعلانية</p>
 </div>
+
 <div class="stat">
 <h2 class="count" data-target="113990">0</h2>
 <p>زيارة</p>
 </div>
+
 </section>
 
-<!-- SERVICES -->
 <section id="services" class="section reveal">
+
 <h2>خدماتنا</h2>
+
 <div class="grid">
 
 <div class="card" onclick="openService(
@@ -660,7 +611,7 @@ padding: 15px;
 
 <div class="card" onclick="openService(
 'خدمات متنوعة',
-'✅ إنشاء تطبيق ( ابليكشن ) 🎰\n✅ بيع قنوات تلجرام وصفحات فيس وانستا وتيك توك وواتس اب جاهزة 💯\n✅ شحن العاب 🎮\n✅ تصميم ديزاين ولوجو وايموشن جيرافيك وهوية بصرية كاملة 🖼️\n✅ إعلانات في جرائد وصحف معروفة 📰\n✅ تعليقات المشاهير من حساباتهم الرسمية 🕺\n✅ اشتراكات الذكاء الاصطناعي ⌨️\n✅ اشتراكات شاهد ونتفلكس وواتش ايت 🖥️\n✅ اشتراكات كنفا 🎨\n✅ سحب بيانات كاملة لأي شخص من خلال رقم هاتفه ( لأستخدامات قانونية فقط )\n✅ حظر وإغلاق صفحة او حساب أو قناة على [ تليجرام - فيس بوك - انستجرام - تيك توك - واتس اب - يوت يوب - تويتر ] 📵\n✅ اشتراكات جاكو - شوبي - كيك IPTV\n✅ زيارات للموقع\n✅ مشاهدات للمقالات\n✅ تقييم خرائط جوجل',
+'✅ إنشاء تطبيق ( ابليكشن ) 🎰\n✅ بيع قنوات تلجرام وصفحات فيس وانستا وتيك توك وواتس اب جاهزة 💯\n✅ شحن العاب 🎮\n✅ تصميم ديزاين ولوجو وايموشن جيرافيك وهوية بصرية كاملة 🖼️\n✅ إعلانات في جرائد وصحف معروفة 📰\n✅ تعليقات المشاهير من حساباتهم الرسمية 🕺\n✅ اشتراخاص الذكاء الاصطناعي ⌨️\n✅ اشتراكات شاهد ونتفلكس وواتش ايت 🖥️\n✅ اشتراكات كنفا 🎨\n✅ سحب بيانات كاملة لأي شخص من خلال رقم هاتفه ( لأستخدامات قانونية فقط )\n✅ حظر وإغلاق صفحة او حساب أو قناة على [ تليجرام - فيس بوك - انستجرام - تيك توك - واتس اب - يوت يوب - تويتر ] 📵\n✅ اشتراكات جاكو - شوبي - كيك IPTV\n✅ زيارات للموقع\n✅ مشاهدات للمقالات\n✅ تقييم خرائط جوجل',
 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-cubes"></i>
@@ -668,160 +619,264 @@ padding: 15px;
 </div>
 
 </div>
+
 </section>
 
-<!-- WHY US SECTION -->
-<section id="why-us" class="section reveal">
-<h2>لماذا تختار شركة التاجر؟</h2>
-<div class="grid">
-
-<div class="card feature-card">
-<i class="fas fa-lightbulb"></i>
-<h3>أفكار إبداعية خارج الصندوق</h3>
-<p>نبتكر حلولاً تسويقية مخصصة تناسب طبيعة نشاطك التجاري وتضمن تميزك عن المنافسين.</p>
-</div>
-
-<div class="card feature-card">
-<i class="fas fa-bullseye"></i>
-<h3>استهداف دقيق وذكي</h3>
-<p>نصل إلى عملائك المحتملين بدقة عالية لضمان أعلى معدل تحويل وأفضل عائد على الاستثمار.</p>
-</div>
-
-<div class="card feature-card">
-<i class="fas fa-headset"></i>
-<h3>دعم فني ومتابعة مستمرة</h3>
-<p>فريقنا متواجد على مدار الساعة لمتابعة الحملات، الإجابة على استفساراتك، وتقديم التقارير الدورية.</p>
-</div>
-
-<div class="card feature-card">
-<i class="fas fa-shield-halved"></i>
-<h3>أمان وموثوقية كاملة</h3>
-<p>نلتزم بأعلى معايير الأمان والخصوصية في إدارة حساباتك وتزويد المتابعين بطرق آمنة تماماً.</p>
-</div>
-
-<div class="card feature-card">
-<i class="fas fa-bolt"></i>
-<h3>سرعة في التنفيذ</h3>
-<p>نحترم وقت عملائنا ونضمن تسليم البوتات، التصاميم، وإطلاق الحملات الإعلانية في أسرع وقت ممكن.</p>
-</div>
-
-<div class="card feature-card">
-<i class="fas fa-hand-holding-dollar"></i>
-<h3>أسعار تنافسية</h3>
-<p>باقات مرنة وتنافسية تناسب الميزانيات المختلفة للمشاريع الناشئة والشركات الكبرى.</p>
-</div>
-
-</div>
-</section>
-
-<!-- POPUP -->
 <div id="servicePopup" class="popup">
+
 <div class="popup-box">
+
 <span class="close-popup" onclick="closeService()">&times;</span>
+
 <h2 id="popupTitle"></h2>
+
 <img id="popupImage" class="popup-img" src="" alt="Service Image">
+
 <p id="popupText"></p>
-</div>
+
 </div>
 
-<!-- ABOUT -->
+</div>
+
 <section id="about" class="section reveal">
+
 <h2>من نحن</h2>
+
 <p style="max-width:800px;margin:auto;line-height:2;font-size:18px;">
-شركة التاجر للدعاية والإعلان متخصصة في تنفيذ الحملات الإعلانية وصناعة الهوية البصرية وإدارة السوشيال ميديا بشكل احترافي يساعد الشركات والمتاجر على النمو وتحقيق أفضل النتائج.
+
+شركة التاجر للدعاية والإعلان متخصصة في تنفيذ الحملات الإعلانية
+وصناعة الهوية البصرية وإدارة السوشيال ميديا بشكل احترافي يساعد
+الشركات والمتاجر على النمو وتحقيق أفضل النتائج.
+
 </p>
+
 </section>
 
-<!-- ORDER -->
 <section id="order" class="section reveal">
+
 <h2>اطلب خدمتك الآن</h2>
+
 <form class="form" onsubmit="sendToWhatsApp(event)">
+
 <input type="text" id="name" placeholder="الاسم" required>
+
 <input type="text" id="service" placeholder="الخدمة المطلوبة" required>
+
 <input type="text" id="phone" placeholder="رقم الهاتف" required>
+
 <textarea id="details" placeholder="تفاصيل إضافية"></textarea>
-<button class="btn" type="submit">إرسال الطلب</button>
+
+<button class="btn" type="submit">
+إرسال الطلب
+</button>
+
 </form>
+
 </section>
 
-<!-- SOCIAL MEDIA -->
 <section class="section reveal">
+
 <h2>تابعنا على منصاتنا</h2>
+
 <div class="social-links">
-<a href="https://t.me/+5TSlpPP48CFhMzg8" target="_blank"><i class="fab fa-telegram"></i></a>
-<a href="https://www.facebook.com/share/1FaM3PKKp3/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-<a href="https://www.instagram.com/el_tager_1?igsh=dDRxd2hpbnplYzNo" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://www.tiktok.com/@el_tageer1?_r=1&_t=ZS-96llZ93oZiX" target="_blank"><i class="fab fa-tiktok"></i></a>
-<a href="https://whatsapp.com/channel/0029VantOMtAInPff6vNpo1z" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<a href="https://t.me/+5TSlpPP48CFhMzg8" target="_blank">
+<i class="fab fa-telegram"></i>
+</a>
+
+<a href="https://www.facebook.com/share/1FaM3PKKp3/" target="_blank">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="https://www.instagram.com/el_tager_1?igsh=dDRxd2hpbnplYzNo" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.tiktok.com/@el_tageer1?_r=1&_t=ZS-96llZ93oZiX" target="_blank">
+<i class="fab fa-tiktok"></i>
+</a>
+
+<a href="https://whatsapp.com/channel/0029VantOMtAInPff6vNpo1z" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
 </div>
+
 </section>
 
-<!-- CONTACT -->
 <section class="section reveal">
+
 <h2>تواصل معنا</h2>
-<a class="btn" href="https://wa.me/201024941083">واتساب مباشر</a>
+
+<a class="btn" href="https://wa.me/201024941083">
+واتساب مباشر
+</a>
+
 </section>
 
-<!-- WHATSAPP FLOATING BUTTON -->
 <a class="whatsapp" href="https://wa.me/201024941083">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<!-- FOOTER -->
 <footer>
 © 2026 التاجر للدعاية والإعلان
 </footer>
-
-</div> <!-- END MAIN WRAPPER -->
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script>
 
-// إخفاء شاشة التحميل بشكل فوري وآمن
-function hideLoader() {
-    const loader = document.getElementById("loaderScreen");
-    if(loader) {
-        loader.style.opacity = "0";
-        setTimeout(() => {
-            loader.style.display = "none";
-            reveal(); // إظهار باقي أقسام الموقع
-        }, 500);
-    }
+particlesJS("particles-js",{
+particles:{
+number:{value:50},
+size:{value:3},
+move:{speed:1.2},
+line_linked:{
+enable:true,
+distance:140
 }
-
-// تشغيل الإخفاء تلقائياً بعد ثانية واحدة لضمان عدم حدوث أي تعليق
-window.addEventListener("DOMContentLoaded", () => {
-    setTimeout(hideLoader, 1000);
+}
 });
 
-window.addEventListener("load", hideLoader);
+window.addEventListener("load",()=>{
 
-// تشغيل الخلفية التفاعلية
-try {
-    particlesJS("particles-js",{
-        particles:{
-            number:{value:40},
-            size:{value:2.5},
-            move:{speed:1.2},
-            line_linked:{
-                enable:true,
-                distance:140,
-                opacity: 0.3
-            }
-        }
-    });
-} catch(e) {
-    console.log("Particles script skipped.");
-}
+setTimeout(()=>{
 
-// حركات ظهور العناصر عند الاسكرول
+document.querySelector(".loader-screen").style.opacity="0";
+
+setTimeout(()=>{
+document.querySelector(".loader-screen").style.display="none";
+},1000);
+
+},2200);
+
+});
+
 function reveal(){
-    document.querySelectorAll(".reveal").forEach(el=>{
-        if(el.getBoundingClientRect().top < window.innerHeight - 50){
-            el.classList.add("active");
-        }
-    });
+
+document.querySelectorAll(".reveal").forEach(el=>{
+
+if(el.getBoundingClientRect().top < window.innerHeight-100){
+
+el.classList.add("active");
+
 }
 
-window.addEven
+});
+
+}
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
+let started=false;
+
+function counter(){
+
+if(started) return;
+
+let sec=document.querySelector(".stats");
+
+if(sec.getBoundingClientRect().top < window.innerHeight-100){
+
+started=true;
+
+document.querySelectorAll(".count").forEach(c=>{
+
+let t=+c.dataset.target;
+
+let cur=0;
+
+let inc=t/100;
+
+function up(){
+
+cur+=inc;
+
+if(cur<t){
+
+c.innerText=Math.ceil(cur).toLocaleString()+"+";
+
+requestAnimationFrame(up);
+
+}else{
+
+c.innerText=t.toLocaleString()+"+";
+
+}
+
+}
+
+up();
+
+});
+
+}
+
+}
+
+window.addEventListener("scroll",counter);
+
+counter();
+
+function openService(title,text,imgUrl){
+
+document.getElementById("popupTitle").innerText=title;
+
+document.getElementById("popupText").innerText=text;
+
+document.getElementById("popupImage").src=imgUrl;
+
+document.getElementById("servicePopup").style.display="flex";
+
+}
+
+function closeService(){
+
+document.getElementById("servicePopup").style.display="none";
+
+}
+
+window.addEventListener("click",(e)=>{
+
+let popup=document.getElementById("servicePopup");
+
+if(e.target===popup){
+
+popup.style.display="none";
+
+}
+
+});
+
+function sendToWhatsApp(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+
+let service=document.getElementById("service").value;
+
+let phone=document.getElementById("phone").value;
+
+let details=document.getElementById("details").value;
+
+let msg=`طلب خدمة:
+الاسم: ${name}
+الخدمة: ${service}
+رقم الهاتف: ${phone}
+تفاصيل: ${details}`;
+
+window.open(
+"https://wa.me/201024941083?text="+encodeURIComponent(msg),
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+
+</html>
