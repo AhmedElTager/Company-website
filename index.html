@@ -230,7 +230,6 @@ transition:.4s;
 transform:rotateY(180deg) scale(1.15);
 }
 
-/* التنسيق الخاص ببطاقات المميزات لتبدو متناسقة ودون ضغط تفاعلي غير مطلوب */
 .feature-card {
 cursor: default;
 }
@@ -428,7 +427,7 @@ margin-top:50px;
   overflow: hidden;
   white-space: nowrap;
   box-sizing: border-box;
-  padding: 10px 0;
+  padding: 11px 0;
   font-weight: bold;
   font-size: 15px;
   direction: ltr;
@@ -437,12 +436,12 @@ margin-top:50px;
 .ticker {
   display: inline-block;
   padding-left: 100%;
-  animation: marquee 25s linear infinite;
+  animation: marquee 35s linear infinite;
 }
 
 .ticker__item {
   display: inline-block;
-  padding: 0 2rem;
+  padding: 0 1.8rem;
 }
 
 @keyframes marquee {
@@ -475,24 +474,43 @@ width:100%;
 <!-- TICKER MARQUEE -->
 <div class="ticker-wrap">
   <div class="ticker">
-    <div class="ticker__item">مكاتب •</div>
-    <div class="ticker__item">مصانع •</div>
-    <div class="ticker__item">مستوردين •</div>
-    <div class="ticker__item">قنوات تيليجرام تجارية •</div>
-    <div class="ticker__item">براندات ملابس وأحذية وشنط •</div>
-    <div class="ticker__item">أكاديميات تعليمية •</div>
-    <div class="ticker__item">مطاعم وكافيهات •</div>
-    <div class="ticker__item">شركات عقارات •</div>
-    <div class="ticker__item">متاجر إلكترونية •</div>
-    <div class="ticker__item">مكاتب •</div>
-    <div class="ticker__item">مصانع •</div>
-    <div class="ticker__item">مستوردين •</div>
-    <div class="ticker__item">قنوات تيليجرام تجارية •</div>
-    <div class="ticker__item">براندات ملابس وأحذية وشنط •</div>
-    <div class="ticker__item">أكاديميات تعليمية •</div>
-    <div class="ticker__item">مطاعم وكافيهات •</div>
-    <div class="ticker__item">شركات عقارات •</div>
-    <div class="ticker__item">متاجر إلكترونية</div>
+    <div class="ticker__item">براندات أحذية وشنط •</div>
+    <div class="ticker__item">براندات اكسسوارات وميكب •</div>
+    <div class="ticker__item">براندات ادوات منزلية ومفروشات •</div>
+    <div class="ticker__item">براندات ملابس •</div>
+    <div class="ticker__item">مكاتب ادوات مدرسية ولعب اطفال •</div>
+    <div class="ticker__item">مصانع ومكاتب الاثاث والديكور •</div>
+    <div class="ticker__item">المصانع والورش •</div>
+    <div class="ticker__item">معارض السيارات •</div>
+    <div class="ticker__item">شركات الأمن والنظافة •</div>
+    <div class="ticker__item">العيادات الطبية •</div>
+    <div class="ticker__item">الصيدليات •</div>
+    <div class="ticker__item">المزارع •</div>
+    <div class="ticker__item">مراكز التجميل و الكوافير •</div>
+    <div class="ticker__item">شركات الشحن •</div>
+    <div class="ticker__item">الجيمات والأندية الرياضية •</div>
+    <div class="ticker__item">شركات العقارات والسياحة •</div>
+    <div class="ticker__item">تجار السلع الغذائية •</div>
+    <div class="ticker__item">محلات الموبايلات •</div>
+    <!-- تكرار العناصر لضمان انسيابية الحركة بدون فراغات كبرى -->
+    <div class="ticker__item">براندات أحذية وشنط •</div>
+    <div class="ticker__item">براندات اكسسوارات وميكب •</div>
+    <div class="ticker__item">براندات ادوات منزلية ومفروشات •</div>
+    <div class="ticker__item">براندات ملابس •</div>
+    <div class="ticker__item">مكاتب ادوات مدرسية ولعب اطفال •</div>
+    <div class="ticker__item">مصانع ومكاتب الاثاث والديكور •</div>
+    <div class="ticker__item">المصانع والورش •</div>
+    <div class="ticker__item">معارض السيارات •</div>
+    <div class="ticker__item">شركات الأمن والنظافة •</div>
+    <div class="ticker__item">العيادات الطبية •</div>
+    <div class="ticker__item">الصيدليات •</div>
+    <div class="ticker__item">المزارع •</div>
+    <div class="ticker__item">مراكز التجميل و الكوافير •</div>
+    <div class="ticker__item">شركات الشحن •</div>
+    <div class="ticker__item">الجيمات والأندية الرياضية •</div>
+    <div class="ticker__item">شركات العقارات والسياحة •</div>
+    <div class="ticker__item">تجار السلع الغذائية •</div>
+    <div class="ticker__item">محلات الموبايلات</div>
   </div>
 </div>
 
@@ -582,7 +600,7 @@ width:100%;
 <h3>إعلانات ممولة</h3>
 </div>
 
-<!-- GRAPHIC DESIGN (NEW SECTION) -->
+<!-- GRAPHIC DESIGN -->
 
 <div class="card" onclick="openService(
 'التصميم الجرافيكي',
@@ -670,7 +688,7 @@ width:100%;
 
 </section>
 
-<!-- WHY US SECTION (NEW) -->
+<!-- WHY US SECTION -->
 
 <section id="why-us" class="section reveal">
 
@@ -938,55 +956,4 @@ document.getElementById("popupText").innerText=text;
 
 document.getElementById("popupImage").src=imgUrl;
 
-document.getElementById("servicePopup").style.display="flex";
-
-}
-
-function closeService(){
-
-document.getElementById("servicePopup").style.display="none";
-
-}
-
-window.addEventListener("click",(e)=>{
-
-let popup=document.getElementById("servicePopup");
-
-if(e.target===popup){
-
-popup.style.display="none";
-
-}
-
-});
-
-function sendToWhatsApp(e){
-
-e.preventDefault();
-
-let name=document.getElementById("name").value;
-
-let service=document.getElementById("service").value;
-
-let phone=document.getElementById("phone").value;
-
-let details=document.getElementById("details").value;
-
-let msg=`طلب خدمة:
-الاسم: ${name}
-الخدمة: ${service}
-رقم الهاتف: ${phone}
-تفاصيل: ${details}`;
-
-window.open(
-"https://wa.me/201024941083?text="+encodeURIComponent(msg),
-"_blank"
-);
-
-}
-
-</script>
-
-</body>
-
-</html>
+document.getElementById("servicePopup").style.dis
