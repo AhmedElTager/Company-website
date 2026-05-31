@@ -52,7 +52,8 @@ z-index:99999;
 transition: opacity 0.5s ease;
 }
 
-.loader-content text-align:center;{
+.loader-content {
+text-align: center;
 }
 
 .loader-content h1{
@@ -777,27 +778,26 @@ padding: 15px;
 
 <script>
 
-// إخفاء شاشة التحميل بشكل آمن وتلقائي بمجرد فتح الصفحة لضمان عمل الموقع
+// إخفاء شاشة التحميل بشكل فوري وآمن
 function hideLoader() {
     const loader = document.getElementById("loaderScreen");
     if(loader) {
         loader.style.opacity = "0";
         setTimeout(() => {
             loader.style.display = "none";
-            // تفعيل العناصر لتظهر فوراً
-            reveal();
+            reveal(); // إظهار باقي أقسام الموقع
         }, 500);
     }
 }
 
-// تنفيذ الإخفاء بعد ثانيتين تلقائياً كحد أقصى لتجنب أي تعليق
+// تشغيل الإخفاء تلقائياً بعد ثانية واحدة لضمان عدم حدوث أي تعليق
 window.addEventListener("DOMContentLoaded", () => {
-    setTimeout(hideLoader, 1500);
+    setTimeout(hideLoader, 1000);
 });
 
 window.addEventListener("load", hideLoader);
 
-// تشغيل الخلفية التفاعلية مع الحماية في حال لم يحمل السيرفر
+// تشغيل الخلفية التفاعلية
 try {
     particlesJS("particles-js",{
         particles:{
@@ -812,10 +812,16 @@ try {
         }
     });
 } catch(e) {
-    console.log("Particles script skipped or blocked, site working normally.");
+    console.log("Particles script skipped.");
 }
 
 // حركات ظهور العناصر عند الاسكرول
 function reveal(){
     document.querySelectorAll(".reveal").forEach(el=>{
-        if(el.getBoundingClientRe
+        if(el.getBoundingClientRect().top < window.innerHeight - 50){
+            el.classList.add("active");
+        }
+    });
+}
+
+window.addEven
